@@ -1,0 +1,119 @@
+.signup-bg {
+    position: relative;
+}
+
+.sigup-img-1 {
+    z-index: 2;
+    position: absolute;
+    padding: 24.5rem 0rem 0rem 0rem;
+}
+
+.sigup-img-2 {
+    z-index: 1;
+    position: absolute;
+    padding: 29rem 0rem 0rem 11rem;
+}
+
+.sigup-img-3 {
+    z-index: 2;
+    position: absolute;
+    padding: 0rem 0rem 0rem 40rem;
+}
+
+.sigup-img-4 {
+    z-index: 1;
+    position: absolute;
+    padding: 0rem 0rem 0rem 82.8rem;
+    opacity: 0.3;
+}
+
+.green{
+    position: absolute;
+    height: 40rem;
+    width: 40rem;
+    border-radius: 50%;
+    background: #437A4C;
+    z-index: 0;
+    margin: -7rem 0rem 0rem -5rem;
+}
+
+.lightgreen{
+    height: 25rem;
+    width: 25rem;
+    position: absolute;
+    z-index: 1;
+    background: #2BB79D;
+    opacity: 0.3;
+    border-radius: 50%;
+    margin: -12rem 0rem 0rem 25rem;
+}
+
+.signup-main {
+    background: linear-gradient(178.32deg, #3A8E65 34.76%, #61E4EC 97.01%);
+}
+
+.signup-welcome-msg span{
+    z-index: 2;
+    position: absolute;
+    width: 30%;
+    font-size: 3rem;
+    font-weight: bold;
+    margin: 7rem 0rem 0rem 6rem;
+    color: #031A24;
+}
+
+.signup {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 3rem 0rem 3rem 0rem;
+    gap: 2rem;
+    margin-left: 35%;
+}
+
+.signup h1{
+    font-size: 3.5rem;
+    color: #2F4441;
+}
+
+.signup-form {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: auto auto;
+    gap: 25px;
+}
+
+.tick {
+    grid-column: 1 / -1;
+}
+
+.create-btn {
+    grid-column: 1 / -1;
+}
+
+.social-signup {
+    grid-column: 1 / -1;
+    margin-left: 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+}
+
+.text-signup {
+    padding: 1rem 1rem 1rem 1rem;
+    width: 20rem;
+    border-radius: 5px;
+    background: #C6FCFC;
+    border: none;
+    font-size: 1.2rem;
+    position: relative;
+}
+
+.tick {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}

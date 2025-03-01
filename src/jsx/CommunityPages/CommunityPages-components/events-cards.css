@@ -1,0 +1,80 @@
+.event-card {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    background: linear-gradient(#B3D0B4, #439AD8);
+    height: 12rem;
+    width: 30rem;
+    padding: 0 1rem;
+    border-radius: 10px;
+}
+
+.event-details {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.event-img{
+    height: 10rem;
+    border-radius: 5px;
+}
+
+.event-title{
+    font-size: 1.1rem;
+    font-weight: bold;
+}
+
+.event-date, .event-status{
+    font-size: 1.1rem;
+    font-weight: bold;
+}
+
+.event-date::before, .event-status::before{
+    content: '◾';
+}
+
+.event-register{
+    background: #388253;
+    padding: 0.4rem 0.8rem;
+    color: white;
+    border: none;
+}
+
+.event-people{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.event-people::before{
+    content: '◾';
+}
+
+.avatar-img:nth-child(1){
+    transform: translate(5px,0);
+}
+
+.avatar-img:nth-child(2){
+    transform: translate(-10px,0);
+}
+
+.avatar-img:nth-child(3){
+    transform: translate(-20px,0);
+}
+
+.avatar-img:nth-child(4){
+    transform: translate(-30px,0);
+}
+
+.avatar-img{
+    width: 2rem;
+    height: 2rem;
+    object-fit: cover;
+    border-radius: 50%;
+    border: solid 2px #fff;
+    transition: all 0.3s;
+}

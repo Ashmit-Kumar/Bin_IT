@@ -1,0 +1,67 @@
+.createEvent{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 14rem;
+  padding: 4rem 10rem;
+  color: #195A94;
+}
+
+.btn{
+  font-family: 'Open Sans';
+  font-size: 2rem;
+  font-weight: bold;
+  padding: 0.5rem 3rem;
+  background: #D6D2B4;
+  color: #2b293d;
+  word-wrap: break-word; 
+  border-radius: 10px;
+  border: none;
+  height: 4rem;
+}
+
+.btn:hover{
+  background: #ffde37dc;
+  cursor: pointer;
+}
+
+.createEvent .left{
+  width: 50%;
+}
+
+.left h1{
+  font-size: 2.8rem;
+  margin-bottom: 3rem;
+}
+
+.left p{
+  word-wrap: break-word;
+  font-size: 1.6rem;
+}
+
+.calendar{
+  margin-right: 1.5rem;
+}
+
+@media (max-width: 1048px) {
+  .createEvent {
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+    padding: 2rem 0;
+  }
+
+  .left h1 {
+    font-size: 2.8rem;
+  }
+
+  .left p {
+    font-size: 1.6rem;
+  }
+
+  .btn {
+    font-size: 2rem;
+    padding: 0.5rem 3rem;
+    height: 5rem;
+  }
+}

@@ -1,0 +1,28 @@
+.about-content{
+    padding: 2rem 5rem;
+}
+
+.content-title{
+    font-family: Arial Black;
+    font-size: 3rem;
+    padding-bottom: 20px;
+    border-bottom: 2px solid black;
+    color: #195A94;
+}
+
+.content-detail{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5rem;
+    padding: 2rem 0;
+}
+
+.details{
+    font-size: 1.6rem;
+    text-align: center;
+}
+
+.content-pic img{
+    width: 40rem;
+}

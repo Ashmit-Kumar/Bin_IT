@@ -1,0 +1,20 @@
+body{
+    background-color: #DCF5DF;
+}
+
+#map {
+    width: 450px;
+    height: 400px; 
+    margin-left: 40px;
+    margin-top: 20px; 
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(135, 206, 250, 0.5), 
+        0 0 40px rgba(135, 206, 250, 0.3), 
+        0 0 60px rgba(135, 206, 250, 0.2); 
+        margin-bottom: 30px;
+}
+
+#map img {
+    max-width: none;
+}

@@ -1,0 +1,115 @@
+.img-slider-carousel {
+    width: 100%;
+    height: 60%;
+    border: 2px solid black;
+    background-color: white;
+    overflow: hidden;
+    position: relative;
+    z-index: 0;
+}
+
+.img-slider-carousel-inner {
+    display: flex;
+    transition: transform 0.5s ease;
+}
+
+.img-slider-carousel-item {
+    flex: 0 0 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    height: 605px;
+    position: relative;
+}
+
+.img-slider-carousel-caption {
+    width: 35%;
+    padding: 40px;
+    border: 1px solid white;
+    border-radius: 20px;
+    background-color: rgba(255, 255, 255, 0.699);
+    box-shadow: 10px 15px 25px 10px rgba(0, 0, 0, 0.5);
+    position: absolute;
+    left: 5rem;
+    top: 25%;
+    transform: translateY(-50%);
+}
+
+.img-slider-carousel-item img {
+    flex: 1;
+    width: 100%;
+    height: 656px;
+    object-fit: cover;
+}
+
+.img-slider-prev,
+.img-slider-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(255, 255, 255, 0.5);
+    border: none;
+    color: black;
+    font-size: 24px;
+    padding: 10px;
+    cursor: pointer;
+    z-index: 2;
+}
+
+.img-slider-prev {
+    left: 0;
+}
+
+.img-slider-next {
+    right: 0;
+}
+
+@media screen and (max-width: 1048px) {
+    .img-slider-carousel {
+        height: 45%;
+    }
+
+    .img-slider-carousel-item {
+        height: 450px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .img-slider-carousel {
+        height: 50%;
+    }
+
+    .img-slider-carousel-item {
+        height: 300px;
+    }
+
+    .img-slider-prev,
+    .img-slider-next {
+        font-size: 20px;
+        padding: 8px;
+    }
+
+    .img-slider-carousel-caption {
+        width: 45%;
+        padding: 20px;
+        position: absolute;
+        left: 3.5rem;
+        top: 35%;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .img-slider-carousel {
+        height: 35%;
+    }
+
+    .img-slider-carousel-item {
+        height: 350px;
+    }
+
+    .img-slider-prev,
+    .img-slider-next {
+        font-size: 18px;
+        padding: 6px;
+    }
+}

@@ -1,0 +1,14 @@
+.fdb-container{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    margin: 5rem;
+}
+
+.feedback-title{
+    font-family: Arial Black;
+    font-size: 45px;
+    padding-bottom: 20px;
+    border-bottom: 2px solid black;
+    margin: 0 5rem;
+    color: #195A94;
+}
