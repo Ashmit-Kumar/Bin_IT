@@ -25,13 +25,13 @@ function HomeAboutUs() {
                             Individuals can report incidents of land pollution through our platform, providing a space for them to alert others about polluted areas.
                         </p>
                     </div>
-                    <div className="about-card">
+                    {/* <div className="about-card">
                         <img src="/about-people.png" />
                         <figcaption>Community</figcaption>
                         <p>
                             We believe that solving the problem of land pollution requires collective action. Therefore, we provide a space where like-minded individuals can come together, share ideas, and coordinate efforts.
                         </p>
-                    </div>
+                    </div> */}
                     <div className="about-card">
                         <img src="/about-news.png" />
                         <figcaption>News</figcaption>

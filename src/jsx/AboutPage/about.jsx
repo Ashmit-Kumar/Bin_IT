@@ -11,17 +11,17 @@ import Header from '../Commen-Components/header';
 
 const About = () => {
     const images = [
+        { src: '/img-slide-1.jpeg', alt: 'Image 4' },
         { src: '/img-slide-4.jpg', alt: 'Image 1' },
         { src: '/img-slide-3.jpg', alt: 'Image 2' },
         { src: '/img-slide-2.jpeg', alt: 'Image 3' },
-        { src: '/img-slide-1.jpeg', alt: 'Image 4' },
     ];
 
     const captions = [
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-        'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
-        'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
-        'Yeah Finally Did this also'
+        'BinIT to Win It – A Cleaner World Starts with You!',
+        'Trash the Waste, Treasure the Earth – BinIT Today!',
+        'Turn Awareness into Action – BinIT for a Greener Tomorrow!',
+        'Pollution Ends Where Responsibility Begins – BinIT Now!'
     ];
 
     const detailData = [
@@ -87,18 +87,18 @@ const About = () => {
             <Header />
             <main>
                 <HomeImageSlider images={images} captions={captions} />
-                {/* <HomeAboutUs /> */}
-                {/* <Feature /> */}
-                {/* {detailData.map((detail, index) => (
+                <HomeAboutUs />
+                <Feature />
+                {detailData.map((detail, index) => (
                     <Details
                         key={index}
                         title={detail.title}
                         paragraph={detail.paragraph}
                         imageSrc={detail.imageSrc}
                     />
-                ))} */}
-                {/* <Journey /> */}
-                {/* <div className="team-members">
+                ))}
+                <Journey />
+                <div className="team-members">
                     <span className='team-title'>MEET THE TEAM</span>
                     <div className="team-members-details">
                         {socialLinks.map((links, index) => (
@@ -112,7 +112,7 @@ const About = () => {
                             />
                         ))}
                     </div>
-                </div> */}
+                </div>
             </main>
             <Footer />
         </>

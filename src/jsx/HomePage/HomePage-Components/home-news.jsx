@@ -1,95 +1,61 @@
+import { useEffect, useState } from "react";
+import axios from "axios";
 import "../../../css/home-news.css";
 
 function HomeNews() {
+    const [news, setNews] = useState([]);
+
+    useEffect(() => {
+        const fetchNews = async () => {
+            try {
+                const apiKey = "3376efcc74594e13b3c66f49229b5a89";
+                const query = "pollution of land and water";
+                const url = `https://newsapi.org/v2/everything?q=${encodeURIComponent(query)}&apiKey=${apiKey}`;
+                const response = await axios.get(url);
+                setNews(response.data.articles.slice(0, 9));
+            } catch (error) {
+                console.error("Error fetching news:", error);
+            }
+        };
+        fetchNews();
+    }, []);
+
     return (
-        <>
-            <div className="home-news">
-                <div className="home-news-title">
-                    NEWS UPDATE
-                </div>
-                <div className="news-card-1">
-                    <img src="/news-card-1.png" alt="" />
-                    <div className="cmt">
-                        <p className="dt">24-Oct-2021</p>
-                        <p>136 COMMENTS</p>
-                    </div>
-                    <div className="news-content">
-                        <h3>
-                            Hymn to the United Nations
-                        </h3>
-                        <p>
-                            Get inspired by this revived W.H. Auden’s Hymn to the United Nations. "Let music for peace Be the paradigm, For peace means to change At the right time, As the World-Clock, Goes Tick and Tock.So may the story Of our human city Presently move...
-                        </p>
-                    </div>
-                    <div className="news-profile">
-                        <div className="dp">
-                            <img src="/dp1.jpg" alt="" />
-                            Walah Habibi
+        <div className="home-news">
+            <div className="home-news-title">NEWS UPDATE</div>
+            <div className="news-grid">
+                {news.map((article, index) => (
+                    <div key={index} className={`news-card ${index === 0 ? "featured" : ""}`}>
+                        <img
+                            src={article.urlToImage || "/news-placeholder.png"}
+                            alt="News"
+                            className="news-image"
+                            loading="lazy"
+                        />
+                        <div className="news-content">
+                            <h3 className="news-title">{article.title}</h3>
+                            <p className="news-description">
+                                {article.description ? article.description : "No description available."}
+                            </p>
+                            <div className="news-footer">
+                                <span className="news-date">
+                                    {article.publishedAt ? new Date(article.publishedAt).toLocaleDateString() : "N/A"}
+                                </span>
+                                <a
+                                    href={article.url}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="news-btn"
+                                >
+                                    Read More &rarr;
+                                </a>
+                            </div>
                         </div>
-                        <button className="news-btn">Read More &rarr;</button>
                     </div>
-                </div>
-                <div className="news-card-2">
-                    <img src="/news-card-2.png" alt="" />
-                    <div className="cmt">
-                        <p className="dt">24-Oct-2021</p>
-                        <p>136 COMMENTS</p>
-                    </div>
-                    <div className="news-content">
-                        <h3>
-                            Why do we mark International Days?
-                        </h3>
-                    </div>
-                </div>
-                <div className="news-card-3">
-                    <img src="/news-card-3.png" alt="" />
-                    <div className="news-content">
-                        <h3>
-                            A symbol of hope for global unity
-                        </h3>
-                    </div>
-                    <div className="cmt">
-                        <p className="dt">24-Oct-2021</p>
-                        <button>Know More &rarr;</button>
-                    </div>
-                </div>
-                <div className="news-card-4">
-                    <img src="/news-card-4.png" alt="" />
-                    <div className="news-content">
-                        <h3>
-                            A symbol of hope for global unity
-                        </h3>
-                    </div>
-                    <div className="cmt">
-                        <p className="dt">24-Oct-2021</p>
-                        <button>Know More &rarr;</button>
-                    </div>
-                </div>
-                <div className="news-card-5">
-                    <img src="/news-card-1.png" alt="" />
-                    <div className="cmt">
-                        <p className="dt">24-Oct-2021</p>
-                        <p>136 COMMENTS</p>
-                    </div>
-                    <div className="news-content">
-                        <h3>
-                            How it Started?
-                        </h3>
-                        <p>
-                            In 1945, representatives of 50 countries met in San Francisco at the United Nations Conference on International Organization to draw up the United Nations Charter. The United Nations officially came into existence on 24 October 1945...
-                        </p>
-                    </div>
-                    <div className="news-profile">
-                        <div className="dp">
-                            <img src="/dp2.jpg" alt="" />
-                            Babar Azam
-                        </div>
-                        <button className="news-btn">Read More &rarr;</button>
-                    </div>
-                </div>
+                ))}
             </div>
-        </>
-    )
+        </div>
+    );
 }
 
 export default HomeNews;

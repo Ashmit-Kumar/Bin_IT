@@ -91,3 +91,67 @@
     flex-wrap: wrap;
     gap: 2rem;
 }
+
+@media (max-width: 768px) {
+    .about-container{
+        text-align: center;
+        padding: 1rem 0rem 0rem 0rem;
+    }
+    
+    .about-title{
+        border-bottom: 2px solid black;
+        font-size: 2rem;
+        font-weight: 900;
+    }
+    
+    .about-mid{
+        display: flex;
+        flex-direction: column-reverse;
+        gap: 1rem;
+        padding: 0rem 0;
+    }
+    
+    .about-mid p{
+        border-right: 2px solid black;
+        padding: 0 2rem 1rem;
+        font-size: 1.4rem;
+        width: 100%;
+    }
+    
+    .about-mid h3{
+        font-size: 3rem;
+        width: 100%;
+        margin-top: 0.5rem;
+        filter: drop-shadow(0 0 2px #31D722);
+    }
+    
+    .about-bottom{
+        display: flex;
+        gap: 1rem;
+        text-align: center;
+        padding: 1rem 1rem 1rem 1rem;
+    }
+    
+    .about-card{
+        width: 50%;
+        display: flex;
+        flex-direction: column;
+        /* justify-content: center; */
+        /* align-items: center; */
+        gap: 1rem;
+    }
+    
+    .about-card img{
+        height: 2.5rem;
+        width: 2.5rem;
+    }
+    
+    .about-card figcaption{
+        font-size: 25px;
+        font-weight: bold;
+    }
+    
+    .about-card p{
+        font-size: 16px;
+    }
+}
