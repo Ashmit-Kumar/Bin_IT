@@ -136,8 +136,6 @@
         width: 50%;
         display: flex;
         flex-direction: column;
-        /* justify-content: center; */
-        /* align-items: center; */
         gap: 1rem;
     }
     
@@ -153,5 +151,28 @@
     
     .about-card p{
         font-size: 16px;
+    }
+
+
+
+    .team-members{
+        margin: 0rem 0.5rem 2rem;
+        padding: 1rem 1rem;
+        text-align: center;
+        border-radius: 15px;
+    }
+    
+    .team-title{
+        font-size: 2.5rem;
+        font-weight: 900;
+        margin-bottom: 2rem;
+    }
+    
+    .team-members-details{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 1rem;
     }
 }

@@ -12,7 +12,7 @@ function HomeNews() {
                 const query = "pollution of land and water";
                 const url = `https://newsapi.org/v2/everything?q=${encodeURIComponent(query)}&apiKey=${apiKey}`;
                 const response = await axios.get(url);
-                setNews(response.data.articles.slice(0, 9));
+                setNews(response.data.articles.slice(0, 5));
             } catch (error) {
                 console.error("Error fetching news:", error);
             }

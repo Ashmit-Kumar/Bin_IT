@@ -55,7 +55,7 @@ const About = () => {
         'BackEnd-Developer',
         'FrontEnd-Developer',
         'ML Specialist',
-        'Ui/Ux Designer'
+        'Ui Designer'
     ];
 
     const names = [
@@ -67,11 +67,11 @@ const About = () => {
     ];
 
     const descs = [
-        'Worked as Database Administrator, Backend Developer for Website and UX designer',
-        'Worked as both Front-end and Backend developer for Mobile Application.',
+        'Working as Database Administrator, Backend Developer for Website and UX designer',
+        'Working as both Front-end and Backend developer for Mobile Application.',
         'Working as Front-end Developer for Website.',
-        'Worked as ML specialist and Designer for Website and mobile application',
-        'Working as Ux/Ui Designer for website and mobile application'
+        'Working as ML specialist and Designer for Website and mobile application',
+        'Working as Ux Designer for website and mobile application'
     ];
 
     const imgs = [
@@ -97,7 +97,7 @@ const About = () => {
                         imageSrc={detail.imageSrc}
                     />
                 ))}
-                <Journey />
+                {/* <Journey /> */}
                 <div className="team-members">
                     <span className='team-title'>MEET THE TEAM</span>
                     <div className="team-members-details">

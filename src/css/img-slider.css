@@ -75,12 +75,9 @@
 }
 
 @media screen and (max-width: 768px) {
-    .img-slider-carousel {
-        height: 50%;
-    }
 
     .img-slider-carousel-item {
-        height: 235px;
+        height: 300px;
     }
 
     .img-slider-prev,
@@ -95,21 +92,5 @@
         position: absolute;
         left: 3.5rem;
         top: 35%;
-    }
-}
-
-@media screen and (max-width: 480px) {
-    .img-slider-carousel {
-        height: 35%;
-    }
-
-    .img-slider-carousel-item {
-        height: 350px;
-    }
-
-    .img-slider-prev,
-    .img-slider-next {
-        font-size: 18px;
-        padding: 6px;
     }
 }

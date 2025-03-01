@@ -1,8 +1,8 @@
-.journey{
+.journey {
     padding: 2rem 5rem;
 }
 
-.journey-title{
+.journey-title {
     border-bottom: 2px solid black;
     font-size: 3rem;
     font-family: Arial Black;
@@ -10,7 +10,7 @@
     color: #195A94;
 }
 
-.journey-chart{
+.journey-chart {
     margin: 2rem 2rem;
     height: 30rem;
     background: #619EB8;
@@ -18,48 +18,48 @@
     flex-direction: column;
 }
 
-.above-line{
+.above-line {
     margin: 10rem 0rem 0rem 15rem;
     position: absolute;
     display: flex;
     gap: 25rem;
 }
 
-.below-line{
+.below-line {
     margin: 15rem 0rem 0rem 30rem;
     position: absolute;
     display: flex;
     gap: 25rem;
 }
 
-.line{
+.line {
     border: 1px solid white;
     height: 5rem;
     width: 0;
 }
 
-.above-stick{
+.above-stick {
     margin: 9.5rem 0rem 0rem 14.5rem;
     position: absolute;
     display: flex;
     gap: 24.12rem;
 }
 
-.below-stick{
+.below-stick {
     margin: 19.5rem 0rem 0rem 29.5rem;
     position: absolute;
     display: flex;
     gap: 24.12rem
 }
 
-.circle{
+.circle {
     background: white;
     height: 1rem;
     width: 1rem;
     border-radius: 50%;
 }
 
-.above-circle{
+.above-circle {
     position: absolute;
     margin: 5.5rem 0rem 0rem 14rem;
     display: flex;
@@ -69,7 +69,7 @@
     color: white;
 }
 
-.below-circle{
+.below-circle {
     position: absolute;
     margin: 20.5rem 0rem 0rem 25rem;
     display: flex;
@@ -79,19 +79,19 @@
     color: white;
 }
 
-.text-box{
+.text-box {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 
-.text-box h3{
+.text-box h3 {
     font-size: 20px;
     text-align: center;
 }
 
-.text-box h5{
+.text-box h5 {
     font-size: 15px;
     text-align: center;
 }
@@ -107,14 +107,128 @@
     transform-origin: top left;
 }
 
-.orgs-slider-title{
+.orgs-slider-title {
     color: grey;
     font-size: 1.5rem;
     text-align: center;
     margin-bottom: 2rem;
 }
 
-.orgs-slider img{
+.orgs-slider img {
     height: 5rem;
     margin-left: 2.5rem;
+}
+
+@media (max-width: 768px) {
+    .journey {
+        padding: 1.5rem 1.5rem;
+    }
+
+    .journey-title {
+        font-size: 2rem;
+        font-weight: 900;
+        text-align: center;
+    }
+
+    .journey-chart {
+        margin: 1rem 0rem;
+        height: 30rem;
+        background: #619EB8;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .above-line {
+        margin: 10rem 0rem 0rem 15rem;
+        position: absolute;
+        display: flex;
+        gap: 25rem;
+    }
+
+    .below-line {
+        margin: 15rem 0rem 0rem 30rem;
+        position: absolute;
+        display: flex;
+        gap: 25rem;
+    }
+
+    .line {
+        border: 1px solid rgb(0, 0, 0);
+        height: 5rem;
+        width: 0;
+        transform: rotate(270deg);
+    }
+
+    .above-stick {
+        margin: 9.5rem 0rem 0rem 14.5rem;
+        position: absolute;
+        display: flex;
+        gap: 24.12rem;
+    }
+
+    .below-stick {
+        margin: 19.5rem 0rem 0rem 29.5rem;
+        position: absolute;
+        display: flex;
+        gap: 24.12rem
+    }
+
+    .circle {
+        background: rgb(255, 255, 255);
+        height: 1rem;
+        width: 1rem;
+        border-radius: 50%;
+    }
+
+    .above-circle {
+        position: absolute;
+        margin: 5.5rem 0rem 0rem 14rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 20.5rem;
+        color: white;
+    }
+
+    .below-circle {
+        position: absolute;
+        margin: 20.5rem 0rem 0rem 25rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 16rem;
+        color: rgb(255, 255, 255);   
+    }
+
+    .text-box {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .text-box h3 {
+        font-size: 20px;
+        text-align: center;
+    }
+
+    .text-box h5 {
+        font-size: 15px;
+        text-align: center;
+    }
+
+    .journey-chart::before {
+        content: "";
+        position: absolute;
+        margin: 28rem 0rem 0rem 11.2rem;
+        width: 2px;
+        height: 55%;
+        background: rgb(255, 255, 255);
+        transform: rotate(180deg);
+        transform-origin: top left;
+    }
+
+    .orgs-slider img {
+        height: 3.5rem;
+    }
 }

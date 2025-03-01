@@ -50,17 +50,16 @@ import React from 'react';
 import HomeImageSlider from './HomePage-Components/home-imageSlider';
 import HomeAboutUs from './HomePage-Components/about-us';
 import HomeNews from './HomePage-Components/home-news';
-import HomeFeedback from './HomePage-Components/home-feedback';
 import HomeNewsSubs from './HomePage-Components/home-newsSubs';
 import Footer from '../Commen-Components/footer';
 import Header from '../Commen-Components/header';
 
 function Home() {
     const images = [
+        { src: '/img-slide-1.jpeg', alt: 'Image 4' },
         { src: '/img-slide-4.jpg', alt: 'Image 1' },
         { src: '/img-slide-3.jpg', alt: 'Image 2' },
         { src: '/img-slide-2.jpeg', alt: 'Image 3' },
-        { src: '/img-slide-1.jpeg', alt: 'Image 4' },
     ];
 
     const captions = [

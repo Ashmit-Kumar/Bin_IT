@@ -1,14 +1,14 @@
 .member-details {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     background: #DCF5DF;
     gap: 5px;
     height: 100%;
-    min-height: 450px;
+    min-height: 390px;
     width: 350px;
-    padding: 2rem;
+    padding: 1rem;
     text-align: center;
     border-radius: 25px;
 }
@@ -18,6 +18,13 @@
     height: 9rem;
     aspect-ratio: 1/1;
     border-radius: 50%;
+}
+
+.member-dets{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .member-role {
@@ -48,4 +55,65 @@
     height: 4rem;
     border-radius: 50%;
     object-fit: scale-down;
+}
+
+@media (max-width: 768px) {
+    .member-details {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        background: #DCF5DF;
+        gap: 5px;
+        height: 100%;
+        min-height: 220px;
+        width: 350px;
+        padding: 1rem;
+        text-align: center;
+        border-radius: 15px;
+    }
+    
+    .member-details img {
+        object-fit: cover;
+        height: 9rem;
+        aspect-ratio: 1/1;
+        border-radius: 50%;
+    }
+
+    .bas-mobile-ke-liye{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .member-role {
+        font-size: 1.5rem;
+        color: grey;
+    }
+    
+    .member-name {
+        font-size: 1.5rem;
+        font-weight: bold;
+        color: rgb(0, 0, 0);
+        margin-bottom: 10px;
+    }
+    
+    .member-desc {
+        font-size: 1.3rem;
+        color: grey;
+        text-align: center;
+    }
+    
+    .members-socials{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .members-socials img{
+        height: 4rem;
+        border-radius: 50%;
+        object-fit: scale-down;
+    }
 }

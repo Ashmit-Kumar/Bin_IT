@@ -26,3 +26,32 @@
 .content-pic img{
     width: 40rem;
 }
+
+@media (max-width: 768px){
+    .about-content{
+        padding: 1.5rem 1.5rem;
+    }
+    
+    .content-title{
+        text-align: center;
+        font-size: 1.6rem;
+    }
+    
+    .content-detail{
+        display: flex;
+        flex-direction: column-reverse;
+        justify-content: center;
+        align-items: center;
+        gap: 1rem;
+        padding: 1rem 0;
+    }
+    
+    .details{
+        font-size: 1.2rem;
+        text-align: center;
+    }
+    
+    .content-pic img{
+        width: 20rem;
+    }
+}
