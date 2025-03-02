@@ -152,6 +152,46 @@ header{
     width: 100%;
 }
 
+/* Logout Button */
+
+/* Button styling */
+.logout-button {
+    position: relative;
+    background-color: rgb(230, 50, 34); /* Red color for Logout */
+    border-radius: 5px;
+    box-shadow: rgb(55, 18, 121) 0px 4px 0px 0px; /* Shadow with a different color */
+    cursor: pointer;
+    width: 100px;
+    height: 30px;
+    color: #fff;
+    border: none;
+    font-size: 20px;
+    transition: all 0.3s ease-in-out;
+    z-index: 1;
+    overflow: hidden;
+}
+
+.logout-button::before {
+    content: "";
+    background-color: rgba(248, 50, 83, 0.7); /* Lighter red for the hover effect */
+    width: 0;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    transition: width 700ms ease-in-out;
+}
+
+.logout-button:hover::before {
+    width: 100%;
+}
+
+.logout-button:hover {
+    background-color: rgb(200, 50, 34); /* Slightly darker red when hovered */
+}
+
+
 /* Responsive styling for mobile */
 @media (max-width: 768px) {
     header{

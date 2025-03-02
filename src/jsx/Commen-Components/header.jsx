@@ -1,12 +1,30 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import '../../css/header.css'
 
 function Header() {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+    const [isLoggedIn, setIsLoggedIn] = useState(false); // Track login status
+    const navigate = useNavigate();
 
     const toggleMobileMenu = () => {
         setIsMobileMenuOpen(!isMobileMenuOpen);
+    };
+
+    useEffect(() => {
+        // Check if user is logged in by checking localStorage
+        const user = localStorage.getItem('user');
+        if (user) {
+            setIsLoggedIn(true); // User is logged in
+        } else {
+            setIsLoggedIn(false); // User is not logged in
+        }
+    }, []);
+
+    const handleLogout = () => {
+        localStorage.removeItem('user'); // Remove user from localStorage
+        setIsLoggedIn(false); // Update login status
+        navigate('/home'); // Redirect to login page
     };
 
     return (
@@ -45,8 +63,14 @@ function Header() {
                         </li> */}
                         <li><Link to="/news">News</Link></li>
                         <div className="user-register-btn">
-                            <li><Link to="/login"><button className='login-button'>Login</button></Link></li>
-                            <li><Link to='/signup'><button className='signup-button'>SignUp</button></Link></li>
+                            {!isLoggedIn ? (
+                                <>
+                                    <li><Link to="/login"><button className='login-button'>Login</button></Link></li>
+                                    <li><Link to='/signup'><button className='signup-button'>SignUp</button></Link></li>
+                                </>
+                            ) : (
+                                <li><button className="logout-button" onClick={handleLogout}>Logout</button></li>
+                            )}
                         </div>
                     </ul>
                 </nav>

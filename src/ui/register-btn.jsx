@@ -1,6 +1,4 @@
-import { Link } from "react-router-dom";
-
-function RegisterButton({ buttonName, margin, color, bgcolor, path }) {
+function RegisterButton({ buttonName, margin, color, bgcolor, onClick }) {
     const registerBtn = {
         borderRadius: '5px',
         backgroundColor: `${bgcolor}`,
@@ -9,17 +7,19 @@ function RegisterButton({ buttonName, margin, color, bgcolor, path }) {
         color: `${color}`,
         border: 'none',
         padding: '10px 40px',
-        marginLeft: `${margin}rem`
+        marginLeft: `${margin}rem`,
+        cursor: 'pointer',
     }
 
     return (
-        <>
-            <Link to={path}>
-                <button className='register-btn' style={registerBtn}>
-                    {buttonName}
-                </button>
-            </Link>
-        </>
+        <button
+            type="submit"  // Set the button to submit the form
+            className='register-btn'
+            style={registerBtn}
+            onClick={onClick}  // You can still pass onClick for additional functionality if needed
+        >
+            {buttonName}
+        </button>
     )
 }
 
