@@ -1,24 +1,57 @@
 import React from "react";
-import NgoStepper from './NGO Pages/ngo-stepper'
-import NgoPage1 from './NGO Pages/ngopage1';
-import NgoPage2 from './NGO Pages/ngopage2';
-import NgoPage3 from './NGO Pages/ngopage3';
-import NgoPage4 from './NGO Pages/ngopage4';
-import NgoPage5 from './NGO Pages/ngopage5';
-
 import "../../css/ngo.css"
 
-function Ngo() {
-    const componentList = [
-        <NgoPage1 key='first'/>,
-        <NgoPage2 key='second'/>,
-        <NgoPage3 key='third'/>,
-        <NgoPage4 key='fourth'/>,
-        <NgoPage5 key='fifth'/>
-    ];
+import Header from '../Commen-Components/header'
 
+function Ngo() {
     return (
-        <NgoStepper componentList={componentList} />
+        <>
+            <Header />
+            <div className="ngo-register">
+                <form action="" className="ngo-register-form">
+                    <div className="ngo-register-form-container">
+                        <div className="ngo-register-form-left">
+                            <label htmlFor="" className="ngo-register-tags">
+                                <span>NGO Name</span>
+                                <input type="text" />
+                            </label>
+                            <label htmlFor="" className="ngo-register-tags">
+                                <span>Registration Number</span>
+                                <input type="text" />
+                            </label>
+                            <label htmlFor="" className="ngo-register-tags">
+                                <span>Location</span>
+                                <input type="text" />
+                            </label>
+                            <label htmlFor="" className="ngo-register-tags">
+                                <span>Contact</span>
+                                <input type="text" />
+                            </label>
+                        </div>
+
+                        <div className="ngo-register-form-right">
+                            <label htmlFor="" className="ngo-register-tags">
+                                <span>Website</span>
+                                <input type="text" />
+                            </label>
+                            <label htmlFor="" className="ngo-register-tags">
+                                <span>Extablished Year</span>
+                                <input type="text" />
+                            </label>
+                            <label htmlFor="" className="ngo-register-tags">
+                                <span>Mission Statement</span>
+                                <input type="text" />
+                            </label>
+                            <label htmlFor="" className="ngo-register-tags">
+                                <span>Area of Work</span>
+                                <input type="text" />
+                            </label>
+                        </div>
+                    </div>
+                    <button>Register</button>
+                </form>
+            </div>
+        </>
     );
 }
 

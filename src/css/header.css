@@ -1,5 +1,5 @@
 /* General header styling */
-header{
+header {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -11,25 +11,30 @@ header{
     background: #DCF5DF;
 }
 
-.logo{
+.no-scroll {
+    overflow: hidden;
+}
+
+.logo {
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 5px;
 }
 
-.logo-text h1, .logo-text h2 {
-    background: linear-gradient(to right, #000955 ,#141F7E,#284C46,#3B770B);
+.logo-text h1,
+.logo-text h2 {
+    background: linear-gradient(to right, #000955, #141F7E, #284C46, #3B770B);
     background-clip: text;
     color: transparent;
 }
 
-.logo-text h1{
+.logo-text h1 {
     font-size: 3rem;
     text-align: center;
 }
 
-.logo-text h2{
+.logo-text h2 {
     font-size: 0.7rem;
 }
 
@@ -76,7 +81,7 @@ header{
     display: flex;
 }
 
-.dropdown-content li:hover{
+.dropdown-content li:hover {
     background-color: #d8fbdc;
 }
 
@@ -112,7 +117,7 @@ header{
     width: 100%;
 }
 
-.user-register-btn{
+.user-register-btn {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -120,7 +125,7 @@ header{
 }
 
 /* Button styling */
-.login-button{
+.login-button {
     position: relative;
     background-color: rgb(50, 230, 34);
     border-radius: 5px;
@@ -157,9 +162,11 @@ header{
 /* Button styling */
 .logout-button {
     position: relative;
-    background-color: rgb(230, 50, 34); /* Red color for Logout */
+    background-color: rgb(230, 50, 34);
+    /* Red color for Logout */
     border-radius: 5px;
-    box-shadow: rgb(55, 18, 121) 0px 4px 0px 0px; /* Shadow with a different color */
+    box-shadow: rgb(55, 18, 121) 0px 4px 0px 0px;
+    /* Shadow with a different color */
     cursor: pointer;
     width: 100px;
     height: 30px;
@@ -173,7 +180,8 @@ header{
 
 .logout-button::before {
     content: "";
-    background-color: rgba(248, 50, 83, 0.7); /* Lighter red for the hover effect */
+    background-color: rgba(248, 50, 83, 0.7);
+    /* Lighter red for the hover effect */
     width: 0;
     height: 100%;
     position: absolute;
@@ -188,16 +196,22 @@ header{
 }
 
 .logout-button:hover {
-    background-color: rgb(200, 50, 34); /* Slightly darker red when hovered */
+    background-color: rgb(200, 50, 34);
+    /* Slightly darker red when hovered */
 }
 
 
 /* Responsive styling for mobile */
 @media (max-width: 768px) {
-    header{
+    header {
+        padding: 0px 0px 0px 0px;
         flex-direction: row;
-        justify-content: center;
+        justify-content: space-around;
         align-items: center;
+    }
+
+    header .logo {
+        margin-left: 4.4rem;
     }
 
     .nav-links {
@@ -207,12 +221,24 @@ header{
         gap: 0.5rem;
         padding: 0 5rem;
         width: 100%;
+        height: 90vh;
         top: 5rem;
         transition: left 0.3s ease;
         background-color: rgba(255, 255, 255);
         position: fixed;
         right: 0;
+        background: #DCF5DF;
     }
+
+    /* .nav-links li::before {
+        content: "➤ ";
+        bottom: -2px;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background-color: #ff4500;
+        transition: width 0.3s ease-in-out;
+    } */
 
     .nav-links.nav-active {
         left: 0;
@@ -230,9 +256,9 @@ header{
         width: 25px;
         height: 20px;
         cursor: pointer;
-        position:absolute;
+        position: absolute;
         left: 0;
-        margin-left: 3rem;
+        margin-left: 2rem;
     }
 
     .burger div {

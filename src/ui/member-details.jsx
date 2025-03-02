@@ -9,7 +9,7 @@ function MemberDetails({ img, role, name, desc, links }) {
                 <div className="member-dets">
                     <span className='member-role'>{role}</span>
                     <span className='member-name'>{name}</span>
-                    <span className='member-desc'>{desc}</span>
+                    {/* <span className='member-desc'>{desc}</span> */}
                 </div>
                 <div className="members-socials">
                     {links.linkedin && (

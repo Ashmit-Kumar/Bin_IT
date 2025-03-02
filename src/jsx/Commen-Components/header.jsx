@@ -28,17 +28,27 @@ function Header() {
         }
         navigate('/home'); // Redirect to home page
     };
+    useEffect(() => {
+        if (isMobileMenuOpen) {
+            document.body.classList.add("no-scroll");
+        } else {
+            document.body.classList.remove("no-scroll");
+        }
+        return () => document.body.classList.remove("no-scroll");
+    }, [isMobileMenuOpen]);
 
     return (
         <>
             <header>
-                <div className="logo">
-                    <div className="logo-text">
-                        <h1>BinIt</h1>
-                        <h2>Don't See It, Just BinIT</h2>
+                <Link to='/' style={{ textDecoration: 'none' }}>
+                    <div className="logo">
+                        <div className="logo-text">
+                            <h1>BinIt</h1>
+                            <h2>Don't See It, Just BinIT</h2>
+                        </div>
+                        <img src="/BinIT-logo.png" alt="BinIT-Logo" />
                     </div>
-                    <img src="/BinIT-logo.png" alt="BinIT-Logo" />
-                </div>
+                </Link>
 
                 {/* Mobile Menu Toggle */}
                 <div className="burger" onClick={toggleMobileMenu}>
@@ -55,21 +65,20 @@ function Header() {
                         <li><Link to="/submit-report">Report</Link></li>
                         <li><Link to="/news">News</Link></li>
                     </ul>
-
-                    {/* Clerk Authentication */}
-                    <div className="user-register-btn">
-                        <SignedOut>
-                            <SignInButton mode="modal">
-                                <button className="login-button">Login</button>
-                            </SignInButton>
-                        </SignedOut>
-
-                        <SignedIn>
-                            <UserButton afterSignOutUrl="/home" />
-                            <button className="logout-button" onClick={handleLogout}>Logout</button>
-                        </SignedIn>
-                    </div>
                 </nav>
+                {/* Clerk Authentication */}
+                <div className="user-register-btn">
+                    <SignedOut>
+                        <SignInButton mode="modal">
+                            <button className="login-button">Login</button>
+                        </SignInButton>
+                    </SignedOut>
+
+                    <SignedIn>
+                        <UserButton afterSignOutUrl="/home" />
+                        <button className="logout-button" onClick={handleLogout}>Logout</button>
+                    </SignedIn>
+                </div>
             </header>
         </>
     );

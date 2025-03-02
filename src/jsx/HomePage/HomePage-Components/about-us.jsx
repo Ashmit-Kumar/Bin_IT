@@ -36,8 +36,7 @@ function HomeAboutUs() {
                         <img src="/about-news.png" />
                         <figcaption>News</figcaption>
                         <p>
-                            We offer a dedicated space for the latest news and updates regarding pollution, serving as a central hub for individuals to stay informed and engaged with current environmental issues.
-                        </p>
+                        We provide a central hub for the latest pollution news and updates, keeping you informed on environmental issues.                        </p>
                     </div>
                 </div>
             </div>

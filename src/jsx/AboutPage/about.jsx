@@ -47,7 +47,7 @@ const About = () => {
         { linkedin: 'https://www.linkedin.com/in/ashmit-kumar-b7141b290/', github: 'https://github.com/Ashmit-Kumar', email: 'ashmitkumar1020@gmail.com' },
         { linkedin: 'https://www.linkedin.com/in/rudra-pratap-singh-cse/', github: 'https://github.com/RudraSingh05', email: 'er.rudra.singh05@gmail.com' },
         { linkedin: 'https://www.linkedin.com/in/divyansh-saxena-84985724a/', github: 'https://github.com/divyanshsaxena21', email: 'divyansh_saxena@yahoo.com' },
-        { linkedin: 'https://www.linkedin.com/in/pragya-mishra-437314250/', github: '', email: '' }
+        { linkedin: 'https://www.linkedin.com/in/pragya-mishra-437314250/', github: 'https://github.com/Pragya123450', email: 'ipragyamishra2004@gmail.com' }
     ];
 
     const roles = [
@@ -66,20 +66,20 @@ const About = () => {
         'Pragya Mishra'
     ];
 
-    const descs = [
-        'Working as Database Administrator, Backend Developer for Website and UX designer',
-        'Working as both Front-end and Backend developer for Mobile Application.',
-        'Working as Front-end Developer for Website.',
-        'Working as ML specialist and Designer for Website and mobile application',
-        'Working as Ux Designer for website and mobile application'
-    ];
+    // const descs = [
+    //     'Working as Database Administrator, Backend Developer for Website and UX designer',
+    //     'Working as both Front-end and Backend developer for Mobile Application.',
+    //     'Working as Front-end Developer for Website.',
+    //     'Working as ML specialist and Designer for Website and mobile application',
+    //     'Working as Ux Designer for website and mobile application'
+    // ];
 
     const imgs = [
         '/members-dp/ayush.png',
         '/members-dp/ashmit.jpg',
         '/members-dp/rudra.jpg',
-        '/dp2.jpg',
-        '/dp1.jpg'
+        '/members-dp/divyansh.png',
+        '/members-dp/pragya.jpg'
     ];
 
     return (
@@ -107,7 +107,7 @@ const About = () => {
                                 img={imgs[index]}
                                 role={roles[index]}
                                 name={names[index]}
-                                desc={descs[index]}
+                                // desc={descs[index]}
                                 links={links}
                             />
                         ))}
