@@ -1,4 +1,4 @@
-@media (max-width: 1048px) {
+@media (max-width: 768px) {
   .footer-top {
     display: flex;
     flex-direction: column;
@@ -15,7 +15,9 @@
     margin: 0 auto;
   }
 
-
+  .footer-right{
+    min-width: 35%;
+  }
 
   footer .bg{
     display: none;

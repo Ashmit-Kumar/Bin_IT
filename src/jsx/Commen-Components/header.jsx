@@ -29,11 +29,11 @@ function Header() {
                         <li><Link to="/">Home</Link></li>
                         <li><Link to="/about">About Us</Link></li>
                         <li className="dropdown">
-                            <Link to="#">Report</Link>
-                            <div className="dropdown-content">
+                            <Link to="/submit-report">Report</Link>
+                            {/* <div className="dropdown-content">
                                 <li><Link to="/submit-report">Reports on Map</Link></li>
                                 <li><Link to="#">Image Analysis</Link></li>
-                            </div>
+                            </div> */}
                         </li>
                         {/* <li className="dropdown">
                             <Link to="#">Community</Link>

@@ -18,3 +18,11 @@ body{
 #map img {
     max-width: none;
 }
+
+@media (max-width: 768px) {
+    #map {
+        width: 350px;
+        height: 350px; 
+        margin-left: 0px;
+    }
+}

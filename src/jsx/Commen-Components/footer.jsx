@@ -50,7 +50,7 @@ function Footer() {
                     <h3>Help Center</h3>
                     <ul>
                         <li><Link to="/ngo-registration">NGO Registration</Link></li>
-                        <li><Link to="/faqs">FAQs</Link></li>
+                        {/* <li><Link to="/faqs">FAQs</Link></li> */}
                     </ul>
                 </section>
 
@@ -63,6 +63,7 @@ function Footer() {
                         <li><Link to="/terms-of-use">Terms of Use</Link></li>
                     </ul>
                 </section>
+                <section className="footer-right"></section>
             </div>
 
             {/* Footer Bottom */}
