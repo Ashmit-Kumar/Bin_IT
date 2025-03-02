@@ -22,7 +22,7 @@
     position: relative;
 }
 
-.img-slider-carousel-caption {
+/* .img-slider-carousel-caption {
     width: 35%;
     padding: 40px;
     border: 1px solid white;
@@ -33,7 +33,7 @@
     left: 5rem;
     top: 25%;
     transform: translateY(-50%);
-}
+} */
 
 .img-slider-carousel-item img {
     flex: 1;
@@ -86,11 +86,68 @@
         padding: 8px;
     }
 
-    .img-slider-carousel-caption {
+    /* .img-slider-carousel-caption {
         width: 45%;
         padding: 20px;
         position: absolute;
         left: 3.5rem;
         top: 35%;
+    } */
+}
+/* Soft Gradient Animation */
+@keyframes softGradient {
+    0% { background: linear-gradient(135deg, rgba(255, 255, 255, 0.7), rgba(200, 250, 220, 0.4)); }
+    50% { background: linear-gradient(135deg, rgba(255, 255, 255, 0.8), rgba(180, 220, 255, 0.5)); }
+    100% { background: linear-gradient(135deg, rgba(255, 255, 255, 0.7), rgba(200, 250, 220, 0.4)); }
+}
+
+.img-slider-carousel-caption {
+    width: 40%;
+    padding: 30px;
+    border-radius: 15px;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.6), rgba(200, 250, 220, 0.4));
+    backdrop-filter: blur(10px);
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.2);
+
+    position: absolute;
+    left: 5rem;
+    top: 50%;
+    transform: translateY(-50%);
+    
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-align: left;
+    color: #2c3e50; /* Deep blue-grey for a soft feel */
+    
+    border-left: 6px solid #6c5ce7; /* Soft purple accent */
+    transition: all 0.4s ease-in-out;
+}
+
+/* Hover Effect: Subtle Color Flow */
+.img-slider-carousel-caption:hover {
+    animation: softGradient 3s infinite alternate ease-in-out;
+    transform: translateY(-50%) scale(1.03);
+    color: #34495e; /* Slightly deeper tone on hover */
+}
+
+/* Mobile & Tablet Adjustments */
+@media screen and (max-width: 1048px) {
+    .img-slider-carousel-caption {
+        width: 50%;
+        padding: 20px;
+        left: 3.5rem;
+        top: 40%;
+        font-size: 1.2rem;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .img-slider-carousel-caption {
+        width: 60%;
+        padding: 15px;
+        font-size: 1rem;
+        left: 2rem;
+        top: 35%;
+        border-left: 4px solid #6c5ce7;
     }
 }
