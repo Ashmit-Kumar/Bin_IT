@@ -352,3 +352,52 @@
     border-radius: 10px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
 }
+/* Ensure the parent container can stretch */
+.report-location {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+/* Styling for the form */
+.report-page-2-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+    max-width: 600px; /* Keeps form from stretching too much */
+}
+
+/* Ensure the map container gets the correct height */
+.second-page-map {
+    width: 400px;
+    height: 400px; /* Adjust as needed */
+    max-width: 400px;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-top: 10px;
+}
+
+/* Make sure Leaflet itself is visible */
+.leaflet-container {
+    width: 400px;
+    height: 400px;
+}
+
+/* Ensure buttons have spacing */
+.report-page-2-form button {
+    padding: 10px 15px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.report-page-2-form button:hover {
+    background-color: #0056b3;
+}
