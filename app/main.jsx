@@ -1,10 +1,20 @@
-import React from 'react'
-import ReactDOM from 'react-dom/client'
-import App from './App.jsx'
-import './App.css'
+import React from "react";
+import ReactDOM from "react-dom/client";
+import { ClerkProvider } from "@clerk/clerk-react";
+import { BrowserRouter } from "react-router-dom";
+import App from "./App.jsx";
 
-ReactDOM.createRoot(document.getElementById('root')).render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
-)
+const clerkPubKey = import.meta.env.VITE_CLERK_PUBLISHABLE_KEY;
+
+if (!clerkPubKey || !clerkPubKey.startsWith("pk_")) {
+    console.error("❌ ERROR: Missing or invalid Clerk Publishable Key.");
+    throw new Error("Please check your VITE_CLERK_PUBLISHABLE_KEY in the .env file.");
+}
+
+ReactDOM.createRoot(document.getElementById("root")).render(
+    <ClerkProvider publishableKey={clerkPubKey}>
+        <BrowserRouter> {/* ✅ Only ONE BrowserRouter */}
+            <App />
+        </BrowserRouter>
+    </ClerkProvider>
+);
