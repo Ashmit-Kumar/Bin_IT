@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import '../../css/signup.css'
 import Header from '../Commen-Components/header';
 import Textbox from '../../ui/text-boxes';
 import Checkbox from '../../ui/checkbox';
 import RegisterButton from '../../ui/register-btn';
+import { doCreateUserWithEmailAndPassword, doSignInWithGoogle, doSignInWithFacebook } from '../firebase/auth'; // Import Firebase auth functions
 
 function SignUp() {
     const [fname, setFname] = useState('');
@@ -13,12 +14,50 @@ function SignUp() {
     const [phone, setPhone] = useState('');
     const [pass, setPass] = useState('');
     const [confirmpass, setConfirmPass] = useState('');
+    // const [error, setError] = useState(''); // For error messages
+    const navigate = useNavigate(); // For redirecting after successful signup
 
-    const handleLogin = async (e) => {
+    // Handle email/password signup
+    const handleEmailSignup = async (e) => {
         e.preventDefault();
-        // Handle login logic here, e.g., send data to backend API
+
+        // Check if passwords match
+        if (pass !== confirmpass) {
+            setError("Passwords do not match!");
+            return;
+        }
+
+        try {
+            // Create the user with email and password
+            await doCreateUserWithEmailAndPassword(email, pass);
+            navigate('/home'); // Redirect to home page after successful signup
+        } catch (error) {
+            console.error("Signup Error: ", error.message); // Log error to the console
+            alert(`Signup Error: ${error.message}`); // Set error message if signup fails
+        }
     };
 
+    // Handle Google signup
+    const handleGoogleSignup = async () => {
+        try {
+            await doSignInWithGoogle();
+            navigate('/home'); // Redirect to home page after successful Google signup
+        } catch (error) {
+            console.error("Google SignUp Error: ", error.message); // Log error to the console
+            alert(`Google SignUp Error: ${error.message}`);// Set error message if signup fails
+        }
+    };
+
+    // Handle Facebook signup
+    const handleFacebookSignup = async () => {
+        try {
+            await doSignInWithFacebook();
+            navigate('/home'); // Redirect to home page after successful Facebook signup
+        } catch (error) {
+            console.error("Facebook SignUp Error: ", error.message); // Log error to the console
+            alert(`Facebook SignUp Error: ${error.message}`); // Set error message if signup fails
+        }
+    };
 
     return (
         <>
@@ -39,7 +78,9 @@ function SignUp() {
                         </div>
                         <div className="signup">
                             <h1>Create An Account</h1>
-                            <form onSubmit={handleLogin} className='signup-form'>
+                            <form onSubmit={handleEmailSignup} className='signup-form'>
+                                {/* {error && <div className="error-message">{error}</div>} Display error if signup fails */}
+
                                 <Textbox
                                     label='First Name'
                                     type="text"
@@ -83,8 +124,8 @@ function SignUp() {
                                     className='text-signup'
                                 />
                                 <div className="tick">
-                                    <Checkbox label='Creating your account and you accepting' />
-                                    <Link to='#' style={{ fontSize: '1.2rem', color: 'blue' }}>Terms&Condition</Link>
+                                    <Checkbox label='By creating an account, you accept' />
+                                    <Link to='#' style={{ fontSize: '1.2rem', color: 'blue' }}>Terms & Conditions</Link>
                                 </div>
                                 <div className="create-btn">
                                     <RegisterButton
@@ -101,12 +142,14 @@ function SignUp() {
                                         color='#black'
                                         bgcolor='#C6FCFC'
                                         path='#'
+                                        onClick={handleFacebookSignup} // Trigger Facebook signup
                                     />
                                     <RegisterButton
                                         buttonName="Signup Using Google"
                                         color='#black'
                                         bgcolor='#C6FCFC'
                                         path='#'
+                                        onClick={handleGoogleSignup} // Trigger Google signup
                                     />
                                 </div>
                             </form>
