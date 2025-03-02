@@ -6,6 +6,8 @@ import NgoPage3 from './NGO Pages/ngopage3';
 import NgoPage4 from './NGO Pages/ngopage4';
 import NgoPage5 from './NGO Pages/ngopage5';
 
+import "../../css/ngo.css"
+
 function Ngo() {
     const componentList = [
         <NgoPage1 key='first'/>,

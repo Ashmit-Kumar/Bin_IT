@@ -1,4 +1,5 @@
 import React from 'react';
+import "../../../css/ngo.css"
 
 function NgoPage1() {
     const moveToNext = (currentInput, nextInputId) => {

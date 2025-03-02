@@ -72,7 +72,7 @@ function Faqs() {
                     <img src="/faqs-img/faq-img-1.png" alt="Confused-Image" />
                 </div>
 
-                <div className="faqs-main">
+                {/* <div className="faqs-main">
                     <div className="faqs-ques">
                         <h1 className="faq-titles">Frequently Asked Questions (FAQs)</h1>
                         <div className="faqs-ques-link">
@@ -83,7 +83,7 @@ function Faqs() {
                             <FaqQues no='5' ques="Thank you (this one is a placeholder 😂)" />
                         </div>
                     </div>
-                </div>
+                </div> */}
 
                 <div className="contact" id='contact-area'>
                     <div className="contact-top">

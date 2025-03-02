@@ -187,6 +187,187 @@
 
 /* RESPONSIVE DESIGN */
 @media screen and (max-width: 768px) {
+    .faqs {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+    }
+    
+    /* HEADER SECTION */
+    .faqs-header {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        border-bottom: 1px solid black;
+        position: relative;
+        gap: 5px;
+        padding: 1rem 0.8rem;
+        text-align: center;
+        background: linear-gradient(135deg, #d9fcdd, #b2f0c0);
+        border-radius: 10px;
+        box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.1);
+    }
+    
+    .faq-titles {
+        font-size: 3.9rem;
+        font-weight: bold;
+        color: #333;
+    }
+    
+    .faq-co-title {
+        font-size: 2.9rem;
+        font-weight: normal;
+        color: #666;
+    }
+    
+    .faq-here-u-go {
+        font-size: 2rem;
+        text-align: center;
+        font-weight: normal;
+    }
+    
+    .faq-here-u-go a {
+        color: blue;
+        font-weight: bold;
+        text-decoration: none;
+        transition: color 0.3s ease;
+    }
+    
+    .faq-here-u-go a:hover {
+        color: darkblue;
+    }
+    
+    .faqs-header img {
+        height: 12rem;
+        margin-bottom: -2.4rem;
+        transition: transform 0.3s ease-in-out;
+    }
+    
+    .faqs-header img:hover {
+        transform: scale(1.05);
+    }
+    
+    /* FAQ QUESTIONS SECTION */
+    .faqs-main {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        gap: 10px;
+        padding: 2rem 5rem;
+    }
+    
+    /* CONTACT SECTION */
+    .contact {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 4rem;
+    }
+    
+    .contact-top {
+        border-top: 1px solid black;
+        padding: 1rem 0.7rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    /* CONTACT FORM */
+    .contact-bottom {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 5rem;
+        width: 100%;
+    }
+    
+    .contact-bottom img {
+        height: 25rem;
+    }
+    
+    .contact-form {
+        width: 100%;
+        background: linear-gradient(135deg, #eaf4fc, #cce7ff);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        gap: 1rem;
+        padding: 1rem 0.8rem;
+        filter: drop-shadow(10px 10px 10px grey);
+        border-radius: 15px;
+        transition: box-shadow 0.3s ease-in-out;
+    }
+    
+    .contact-form:hover {
+        box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.2);
+    }
+    
+    /* INPUT FIELDS */
+    .contact-input {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        gap: 5px;
+        width: 100%;
+    }
+    
+    .contact-input input,
+    .contact-input textarea {
+        width: 28rem;
+        border-radius: 10px;
+        border: 2px solid #1e90ff;
+        filter: drop-shadow(5px 5px 2px rgba(0, 0, 0, 0.1));
+        padding: 0.5rem;
+        font-size: 1.5rem;
+        transition: border 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    }
+    
+    .contact-input input:focus,
+    .contact-input textarea:focus {
+        border: 2px solid #ff4500;
+        outline: none;
+        box-shadow: 0px 0px 10px rgba(255, 69, 0, 0.4);
+    }
+    
+    /* BUTTON STYLES */
+    .submit-btns {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 2rem;
+        margin-left: 3.2rem;
+    }
+    
+    .submit-btns button {
+        padding: 1rem 2rem;
+        font-size: 1.5rem;
+        border-radius: 8px;
+        border: none;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+    
+    .submit-btns button:hover {
+        background-color: #ff6347;
+        color: white;
+        transform: scale(1.05);
+    }
+    
+    .submit-btns button:active {
+        transform: scale(0.95);
+    }
+
     .faq-titles {
         font-size: 2.5rem;
     }
