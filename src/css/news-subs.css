@@ -1,3 +1,4 @@
+/* Existing Newsletter CSS */
 .newsletter {
     padding: 2rem 5rem;
     display: flex;
@@ -81,6 +82,22 @@
 
     .button--submit {
         height: 3rem;
-        
     }
+}
+
+/* ✅ Added Toastify Styling */
+.Toastify__toast-container {
+    font-size: 1.4rem;
+}
+
+.Toastify__toast--success {
+    background: linear-gradient(to right, #28a745, #218838);
+    color: white;
+    font-weight: bold;
+}
+
+.Toastify__toast--error {
+    background: linear-gradient(to right, #dc3545, #c82333);
+    color: white;
+    font-weight: bold;
 }
