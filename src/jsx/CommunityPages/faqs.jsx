@@ -17,37 +17,39 @@ function Faqs() {
 
     const handleChange = (e) => {
         const { name, value } = e.target;
-
+    
         if (name === "name" && !/^[a-zA-Z\s]*$/.test(value)) {
             toast.error("Name can only contain letters and spaces!", { position: "top-right" });
             return;
         }
-
-        if (name === "email" && value && !/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(value)) {
-            toast.error("Invalid email format!", { position: "top-right" });
-            return;
-        }
-
+    
         if (name === "message" && value.length > 120) {
             toast.error("Message cannot exceed 120 characters!", { position: "top-right" });
             return;
         }
-
+    
+        // Allow updating the email field, but validate on form submission
         setFormData({ ...formData, [name]: value });
     };
-
+    
     const handleSubmit = (e) => {
-        e.preventDefault();  // ✅ Prevent form from reloading
-
+        e.preventDefault();  
+    
+        // Validate email only when submitting
+        if (!/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(formData.email)) {
+            toast.error("Invalid email format!", { position: "top-right" });
+            return;
+        }
+    
         if (!formData.name || !formData.email || !formData.message) {
             toast.error("Please fill all fields!", { position: "top-right" });
             return;
         }
-
+    
         toast.success("Thank you! We will contact you soon.", { position: "top-right" });
-
-        setFormData({ name: '', email: '', message: '' });  // ✅ Reset form after successful submission
+        setFormData({ name: '', email: '', message: '' });
     };
+    
 
     const handleReset = (e) => {
         e.preventDefault();  // ✅ Prevent unexpected behavior

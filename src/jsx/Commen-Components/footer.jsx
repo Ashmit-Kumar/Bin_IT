@@ -51,6 +51,7 @@ function Footer() {
                     <ul>
                         <li><Link to="/ngo-registration">NGO Registration</Link></li>
                         <li><Link to="/faqs">FAQs</Link></li>
+                        <li><Link to="/faqs#contact-area">Contact Us</Link></li>
                     </ul>
                 </section>
 
