@@ -41,34 +41,16 @@ function Ngo() {
         setFormData({ ...formData, [e.target.name]: e.target.value });
     };
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        if (validateForm()) {
-            toast.success("NGO registered successfully!");
-            console.log("Form submitted:", formData);
-        } else {
-            toast.error("Please correct the errors before submitting.");
-        }
-    };
+    // const handleSubmit = (e) => {
+    //     e.preventDefault();
+    //     if (validateForm()) {
+    //         toast.success("NGO registered successfully!");
+    //         console.log("Form submitted:", formData);
+    //     } else {
+    //         toast.error("Please correct the errors before submitting.");
+    //     }
+    // };
 
-    const [formData, setFormData] = useState({
-        name: '',
-        registrationNumber: '',
-        address: '',
-        contact: '',
-        website: '',
-        establishedYear: '',
-        missionStatement: '',
-        areaOfWork: ''
-    });
-
-    const handleChange = (e) => {
-        const { name, value } = e.target;
-        setFormData((prevData) => ({
-            ...prevData,
-            [name]: value
-        }));
-    };
 
     const handleSubmit = async (e) => {
         e.preventDefault();
