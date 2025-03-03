@@ -32,10 +32,10 @@ function Faqs() {
         setFormData({ ...formData, [name]: value });
     };
     
-    const handleSubmit = (e) => {
-        e.preventDefault();  
+    const handleSubmit = async (e) => {
+        e.preventDefault();
     
-        // Validate email only when submitting
+        // Validate email format
         if (!/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(formData.email)) {
             toast.error("Invalid email format!", { position: "top-right" });
             return;
@@ -46,9 +46,28 @@ function Faqs() {
             return;
         }
     
-        toast.success("Thank you! We will contact you soon.", { position: "top-right" });
-        setFormData({ name: '', email: '', message: '' });
+        try {
+            const api=import.meta.env.VITE_API_KEY;
+            const response = await fetch(`${api}/contact/`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(formData),
+            });
+    
+            if (response.ok) {
+                toast.success("Thank you! We will contact you soon.", { position: "top-right" });
+                setFormData({ name: '', email: '', message: '' });
+            } else {
+                const data = await response.json();
+                toast.error(data.message || "Error submitting your complaint.", { position: "top-right" });
+            }
+        } catch (err) {
+            toast.error("Error submitting the form.", { position: "top-right" });
+        }
     };
+    
     
 
     const handleReset = (e) => {
