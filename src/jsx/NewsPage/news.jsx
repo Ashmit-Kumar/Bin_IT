@@ -12,15 +12,21 @@ const News = () => {
 
     useEffect(() => {
         const fetchNews = async () => {
-            const apiKey = '3376efcc74594e13b3c66f49229b5a89';
+            const apiKey = import.meta.env.VITE_NEWS_API_KEY; // Access API key from env
             const query = 'pollution of land and water';
             const url = `https://newsapi.org/v2/everything?q=${encodeURIComponent(query)}&apiKey=${apiKey}`;
+
+            if (!apiKey) {
+                setError("API Key not found.  Make sure .env file is configured correctly and VITE_NEWS_API_KEY is set.");
+                setLoading(false);
+                return;
+            }
 
             try {
                 const response = await axios.get(url);
                 setArticles(response.data.articles);
-            } catch (error) {
-                setError('Error fetching news');
+            } catch (err) {  // Use 'err' instead of 'error' for the error object
+                setError(`Error fetching news: ${err.message}`);  // Include error message for debugging
             } finally {
                 setLoading(false);
             }

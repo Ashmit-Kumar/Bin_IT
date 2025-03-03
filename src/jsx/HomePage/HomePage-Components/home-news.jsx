@@ -8,8 +8,8 @@ function HomeNews() {
     useEffect(() => {
         const fetchNews = async () => {
             try {
-                const apiKey = "3376efcc74594e13b3c66f49229b5a89";
-                const query = "pollution of land and water";
+                const apiKey = import.meta.env.VITE_NEWS_API_KEY;
+                const query = 'health effects water pollution';
                 const url = `https://newsapi.org/v2/everything?q=${encodeURIComponent(query)}&apiKey=${apiKey}`;
                 const response = await axios.get(url);
                 setNews(response.data.articles.slice(0, 5));
