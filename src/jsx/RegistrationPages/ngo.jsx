@@ -81,6 +81,52 @@ function Ngo() {
             toast.error("Failed to register NGO. Please try again.");
         }
     };
+    
+    // const handleSubmit = (e) => {
+    //     e.preventDefault();
+    //     if (validateForm()) {
+    //         toast.success("NGO registered successfully!");
+    //         console.log("Form submitted:", formData);
+    //     } else {
+    //         toast.error("Please correct the errors before submitting.");
+    //     }
+    // };
+
+
+    // const handleSubmit = async (e) => {
+    //     e.preventDefault();
+
+    //     const apiKey = import.meta.env.VITE_API_KEY; // Accessing the API key from the .env file
+
+    //     try {
+    //         const response = await axios.post(
+    //             `${apiKey}/ngo`, 
+    //             formData, 
+    //             {
+    //                 headers: {
+    //                     'Authorization': `Bearer ${apiKey}` // Sending the API key in the header
+    //                 }
+    //             }
+    //         );
+
+    //         if (response.status === 200) {
+    //             alert("NGO registered successfully!");
+    //             setFormData({
+    //                 name: '',
+    //                 registrationNumber: '',
+    //                 address: '',
+    //                 contact: '',
+    //                 website: '',
+    //                 establishedYear: '',
+    //                 missionStatement: '',
+    //                 areaOfWork: ''
+    //             });
+    //         }
+    //     } catch (error) {
+    //         console.error("There was an error registering the NGO:", error);
+    //         alert("Failed to register NGO. Please try again.");
+    //     }
+    // };
 
     return (
         <>
