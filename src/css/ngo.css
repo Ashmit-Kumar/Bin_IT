@@ -132,3 +132,18 @@
         height: 3rem;
     }
 }
+.error-text {
+    color: red;
+    font-size: 0.9rem;
+    margin-top: 4px;
+}
+
+.Toastify__toast--error {
+    background-color: #d9534f !important;
+    color: white;
+}
+
+.Toastify__toast--success {
+    background-color: #5cb85c !important;
+    color: white;
+}
