@@ -6,6 +6,7 @@ import "react-toastify/dist/ReactToastify.css";
 import axios from "axios";
 
 function Ngo() {
+    const [errors, setErrors] = useState({});
     const [formData, setFormData] = useState({
         name: "",
         registrationNumber: "",
@@ -13,33 +14,30 @@ function Ngo() {
         contact: "",
         website: "",
         establishedYear: "",
-        mission: "",
+        missionStatement: "", // ✅ Use missionStatement instead of mission
         areaOfWork: "",
     });
-
-    const [errors, setErrors] = useState({});
-
+    
     const validateForm = () => {
         let newErrors = {};
         if (!formData.name) newErrors.name = "NGO Name is required.";
         if (!formData.registrationNumber) newErrors.registrationNumber = "Registration Number is required.";
         if (!formData.location) newErrors.location = "Location is required.";
-        // if (!formData.contact || !/^\d{10}$/.test(formData.contact))
-        //     newErrors.contact = "Enter a valid 10-digit contact number.";
         if (!formData.website || !/^https?:\/\/[\w-]+(\.[\w-]+)+[/#?]?.*$/.test(formData.website))
             newErrors.website = "Enter a valid website URL (https://example.com).";
         if (!formData.establishedYear || !/^\d{4}$/.test(formData.establishedYear))
             newErrors.establishedYear = "Enter a valid year (e.g., 2005).";
-        if (!formData.mission) newErrors.mission = "Mission Statement is required.";
+        if (!formData.missionStatement) newErrors.missionStatement = "Mission Statement is required."; // ✅ Corrected key
         if (!formData.areaOfWork) newErrors.areaOfWork = "Area of Work is required.";
-
+    
         setErrors(newErrors);
         return Object.keys(newErrors).length === 0;
     };
-
+    
     const handleChange = (e) => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
     };
+    
     const handleSubmit = async (e) => {
         e.preventDefault();
     
@@ -48,7 +46,7 @@ function Ngo() {
             return;
         }
     
-        const apiKey = import.meta.env.VITE_API_KEY; // Accessing the API key from the .env file
+        const apiKey = import.meta.env.VITE_API_KEY; 
     
         try {
             const response = await axios.post(
@@ -56,19 +54,19 @@ function Ngo() {
                 formData, 
                 {
                     headers: {
-                        'Authorization': `Bearer ${apiKey}` // Sending the API key in the header
+                        'Authorization': `Bearer ${apiKey}`
                     }
                 }
             );
     
-            if (response.status === 200) {
+            if (response.status === 200 || response.status === 201) {
                 toast.success("NGO registered successfully!");
-                console.log("Form submitted:", formData);
+                // console.log("Form submitted:", formData);
     
                 setFormData({
                     name: '',
                     registrationNumber: '',
-                    address: '',
+                    location: '',
                     contact: '',
                     website: '',
                     establishedYear: '',
@@ -81,53 +79,6 @@ function Ngo() {
             toast.error("Failed to register NGO. Please try again.");
         }
     };
-    
-    // const handleSubmit = (e) => {
-    //     e.preventDefault();
-    //     if (validateForm()) {
-    //         toast.success("NGO registered successfully!");
-    //         console.log("Form submitted:", formData);
-    //     } else {
-    //         toast.error("Please correct the errors before submitting.");
-    //     }
-    // };
-
-
-    // const handleSubmit = async (e) => {
-    //     e.preventDefault();
-
-    //     const apiKey = import.meta.env.VITE_API_KEY; // Accessing the API key from the .env file
-
-    //     try {
-    //         const response = await axios.post(
-    //             `${apiKey}/ngo`, 
-    //             formData, 
-    //             {
-    //                 headers: {
-    //                     'Authorization': `Bearer ${apiKey}` // Sending the API key in the header
-    //                 }
-    //             }
-    //         );
-
-    //         if (response.status === 200) {
-    //             alert("NGO registered successfully!");
-    //             setFormData({
-    //                 name: '',
-    //                 registrationNumber: '',
-    //                 address: '',
-    //                 contact: '',
-    //                 website: '',
-    //                 establishedYear: '',
-    //                 missionStatement: '',
-    //                 areaOfWork: ''
-    //             });
-    //         }
-    //     } catch (error) {
-    //         console.error("There was an error registering the NGO:", error);
-    //         alert("Failed to register NGO. Please try again.");
-    //     }
-    // };
-
     return (
         <>
             <Header />
@@ -176,8 +127,13 @@ function Ngo() {
 
                             <label className="ngo-register-tags">
                                 <span>Mission Statement</span>
-                                <input type="text" name="mission" value={formData.mission} onChange={handleChange} />
-                                {errors.mission && <p className="error-text">{errors.mission}</p>}
+                                <input 
+                                    type="text" 
+                                    name="missionStatement"  // ✅ Ensure it matches formData key
+                                    value={formData.missionStatement} 
+                                    onChange={handleChange} 
+                                />
+                                {errors.missionStatement && <p className="error-text">{errors.missionStatement}</p>}
                             </label>
 
                             <label className="ngo-register-tags">
