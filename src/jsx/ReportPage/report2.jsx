@@ -8,8 +8,7 @@ function Stepper({ componentList, formData, handleSubmit, handleFormDataChange }
 
   // Check if all required fields are filled for the current step
   const isStepComplete = () => {
-    console.log("Form Data in Stepper:", formData);
-// console.log("Is Step Complete:", isStepComplete());
+    // console.log("Form Data in Stepper:", formData);
     const currentStepData = componentList[step].props.formData;
     if (step === 0) {
       return currentStepData.areaType && currentStepData.pollutionPlace && currentStepData.pollutionType;
