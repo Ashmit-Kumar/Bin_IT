@@ -3,8 +3,6 @@ import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 import '../../css/faqs.css';
-import FaqQues from './CommunityPages-components/faqs-ques-template';
-import RegisterButton from '../../ui/register-btn';
 import Header from '../Commen-Components/header';
 import Footer from '../Commen-Components/footer';
 

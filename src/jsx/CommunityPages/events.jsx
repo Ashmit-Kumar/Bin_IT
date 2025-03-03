@@ -13,8 +13,6 @@ function Events() {
         { imgUrl: "/content-pic1.png", title: "BC Road Cleaning", date: "30June - 2July", status: "nhi krna" },
         { imgUrl: "/content-pic2.png", title: "Yeah Beach Cleaning", date: "24June - 1July", status: "bhk" }
     ];
-
-
     return (
         <>
         <Header />
