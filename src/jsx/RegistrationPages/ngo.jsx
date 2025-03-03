@@ -69,7 +69,6 @@ function Ngo() {
                     name: '',
                     registrationNumber: '',
                     location: '',
-                    location: '',
                     contact: '',
                     website: '',
                     establishedYear: '',
