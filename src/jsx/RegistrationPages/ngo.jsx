@@ -24,8 +24,8 @@ function Ngo() {
         if (!formData.name) newErrors.name = "NGO Name is required.";
         if (!formData.registrationNumber) newErrors.registrationNumber = "Registration Number is required.";
         if (!formData.location) newErrors.location = "Location is required.";
-        // if (!formData.contact || !/^\d{10}$/.test(formData.contact))
-        //     newErrors.contact = "Enter a valid 10-digit contact number.";
+        if (!formData.contact || !/^\d{10}$/.test(formData.contact))
+            newErrors.contact = "Enter a valid 10-digit contact number.";
         if (!formData.website || !/^https?:\/\/[\w-]+(\.[\w-]+)+[/#?]?.*$/.test(formData.website))
             newErrors.website = "Enter a valid website URL (https://example.com).";
         if (!formData.establishedYear || !/^\d{4}$/.test(formData.establishedYear))
@@ -68,11 +68,11 @@ function Ngo() {
                 setFormData({
                     name: '',
                     registrationNumber: '',
-                    address: '',
+                    location: '',
                     contact: '',
                     website: '',
                     establishedYear: '',
-                    missionStatement: '',
+                    mission: '',
                     areaOfWork: ''
                 });
             }
@@ -82,52 +82,6 @@ function Ngo() {
         }
     };
     
-    // const handleSubmit = (e) => {
-    //     e.preventDefault();
-    //     if (validateForm()) {
-    //         toast.success("NGO registered successfully!");
-    //         console.log("Form submitted:", formData);
-    //     } else {
-    //         toast.error("Please correct the errors before submitting.");
-    //     }
-    // };
-
-
-    // const handleSubmit = async (e) => {
-    //     e.preventDefault();
-
-    //     const apiKey = import.meta.env.VITE_API_KEY; // Accessing the API key from the .env file
-
-    //     try {
-    //         const response = await axios.post(
-    //             `${apiKey}/ngo`, 
-    //             formData, 
-    //             {
-    //                 headers: {
-    //                     'Authorization': `Bearer ${apiKey}` // Sending the API key in the header
-    //                 }
-    //             }
-    //         );
-
-    //         if (response.status === 200) {
-    //             alert("NGO registered successfully!");
-    //             setFormData({
-    //                 name: '',
-    //                 registrationNumber: '',
-    //                 address: '',
-    //                 contact: '',
-    //                 website: '',
-    //                 establishedYear: '',
-    //                 missionStatement: '',
-    //                 areaOfWork: ''
-    //             });
-    //         }
-    //     } catch (error) {
-    //         console.error("There was an error registering the NGO:", error);
-    //         alert("Failed to register NGO. Please try again.");
-    //     }
-    // };
-
     return (
         <>
             <Header />
@@ -187,7 +141,7 @@ function Ngo() {
                             </label>
                         </div>
                     </div>
-                    <button type="submit" disabled={Object.keys(errors).length > 0}>Register</button>
+                    <button type="submit">Register</button>
                 </form>
             </div>
         </>
