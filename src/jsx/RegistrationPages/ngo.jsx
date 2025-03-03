@@ -14,7 +14,7 @@ function Ngo() {
         contact: "",
         website: "",
         establishedYear: "",
-        missionStatement: "", // ✅ Use missionStatement instead of mission
+        missionStatement: "", 
         areaOfWork: "",
     });
     
@@ -72,7 +72,7 @@ function Ngo() {
                     contact: '',
                     website: '',
                     establishedYear: '',
-                    mission: '',
+                    missionStatement: '',
                     areaOfWork: ''
                 });
             }
