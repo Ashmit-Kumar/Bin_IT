@@ -10,9 +10,12 @@ function HomeNews() {
             try {
                 const apiKey = import.meta.env.VITE_NEWS_API_KEY;
                 const query = 'health effects water pollution';
-                const url = `https://newsapi.org/v2/everything?q=${encodeURIComponent(query)}&apiKey=${apiKey}`;
+                const url = `https://newsdata.io/api/1/news?apikey=${apiKey}&q=${encodeURIComponent(query)}&language=en`;
+
                 const response = await axios.get(url);
-                setNews(response.data.articles.slice(0, 5));
+                if (response.data.results) {
+                    setNews(response.data.results.slice(0, 5));
+                }
             } catch (error) {
                 console.error("Error fetching news:", error);
             }
@@ -27,7 +30,7 @@ function HomeNews() {
                 {news.map((article, index) => (
                     <div key={index} className={`news-card ${index === 0 ? "featured" : ""}`}>
                         <img
-                            src={article.urlToImage || "/news-placeholder.png"}
+                            src={article.image_url || "/news-placeholder.png"}
                             alt="News"
                             className="news-image"
                             loading="lazy"
@@ -39,10 +42,10 @@ function HomeNews() {
                             </p>
                             <div className="news-footer">
                                 <span className="news-date">
-                                    {article.publishedAt ? new Date(article.publishedAt).toLocaleDateString() : "N/A"}
+                                    {article.pubDate ? new Date(article.pubDate).toLocaleDateString() : "N/A"}
                                 </span>
                                 <a
-                                    href={article.url}
+                                    href={article.link}
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     className="news-btn"
