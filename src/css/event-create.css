@@ -1,0 +1,105 @@
+.create-bg {
+    background: #5B9739;
+    padding: 4rem 15rem;
+}
+
+.create {
+    background: #85A5BE;
+}
+
+.create-header {
+    font-size: 3rem;
+    background-color: #030C5C;
+    color: white;
+    font-weight: bold;
+    text-align: center;
+}
+
+.create-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 2rem;
+    padding: 2rem 5rem;
+}
+
+.create-form .admin-details,
+.create-form .event-details {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 1rem;
+}
+
+.create-form .admin-details h1,
+.create-form .event-details h1 {
+    font-weight: bold;
+}
+
+.create-form .admin-name,
+.create-form .admin-contact,
+.create-form .event-name-date {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 9rem;
+}
+
+.create-form .admin-name label,
+.create-form .admin-contact label,
+.create-form .event-name-date label,
+.create-form .event-details label {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    color: white;
+    font-size: 1.8rem;
+}
+
+.create-form .admin-gender label{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    color: white;
+    font-size: 1.8rem;
+}
+
+.create-form .gender-radio{
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap:7rem;
+}
+
+.create-form input[type="text"],
+.create-form input[type="number"],
+.create-form input[type="email"],
+.create-form input[type="datetime-local"] {
+    border: none;
+    border-radius: 10px;
+    font-size: 1.5rem;
+    padding: 0.3rem 1rem;
+    min-width: 23rem;
+}
+
+.create-form .event-details textarea{
+    border: none;
+    border-radius: 10px;
+    font-size: 1.5rem;
+    padding: 0.3rem 1rem;
+    width: 55rem;
+}
+
+.create-form .submitbtn{
+    width: 100%;
+    font-size: 2rem;
+    font-weight: bold;
+    color: white;
+    background: #6acb32;
+    border: none;
+    padding: 0.5rem;
+}

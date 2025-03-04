@@ -1,0 +1,195 @@
+.report-submit button {
+    padding: 10px 20px;
+    border: none;
+    background-color: #ffffff;
+    color: rgb(0, 0, 0);
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    font-weight: bold;
+    width: 10rem;
+    font-size: 1rem;
+}
+
+.report-submit button:hover {
+    background-color: #0056b3;
+    color: white;
+}
+
+.report-submit button:disabled {
+    background-color: #6c757d;
+    color: white;
+    cursor: not-allowed;
+}
+
+/* Stepper styles */
+.report-submit #step-wrapper {
+    display: flex;
+    position: relative;
+    margin-bottom: 20px;
+    justify-content: space-between;
+    margin: 0rem 20rem 0rem 20rem;
+    padding-top: 4rem;
+}
+
+.report-submit #step-wrapper #progress-container {
+    position: absolute;
+    width: calc(100% - 70px);
+    height: 4px;
+    top: 50%;
+    transform: translateY(-50%);
+    margin: 0 35px;
+}
+
+.report-submit #step-wrapper #progress {
+    position: absolute;
+    height: 100%;
+    background-color: #000000;
+    transition: width 0.3s ease;
+    top: 0;
+    left: 0;
+    margin-top: 2rem;
+}
+
+.report-submit #step-wrapper span {
+    position: relative;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #e9ecef;
+    margin: 0 5px;
+    font-size: 14px;
+    font-weight: bold;
+    z-index: 1;
+}
+
+.report-submit #step-wrapper span.active {
+    background-color: #000000;
+    color: white;
+}
+
+.report-submit #step-wrapper span.deactive {
+    background-color: #e9ecef;
+    color: #6c757d;
+}
+
+.report-submit #component-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 4rem 0rem 4rem 0rem;
+}
+
+.report-page-1-form select,
+.report-page-3-form select {
+    height: 62px;
+    min-width: 25rem;
+    font-size: 1.3rem;
+    padding: 0.5rem;
+    border-radius: 20px;
+    border: none;
+}
+
+.report-submit .prev-next-btn {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    padding-bottom: 2.3rem;
+}
+
+.report-submit {
+    background: url('/public/report-bg-1.png') no-repeat center center;
+    background-size: cover;
+}
+
+.report-location {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+}
+
+.report-page-1-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 4rem;
+}
+
+.report-page-2-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+}
+
+.report-page-3-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 3.2rem;
+}
+
+.report-page-2-form input {
+    height: 62px;
+    min-width: 25rem;
+    font-size: 1.3rem;
+    padding: 0.5rem;
+    border-radius: 20px;
+    border: none;
+}
+
+.report-page-2-form a {
+    font-size: 2rem;
+    color: rgb(0, 0, 0);
+}
+
+.custum-file-upload {
+    height: 200px;
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: space-between;
+    gap: 20px;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+    border: 2px dashed #e8e8e8;
+    background-color: #ffffff;
+    padding: 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0px 48px 35px -48px #e8e8e8;
+  }
+  
+  .custum-file-upload .icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .custum-file-upload .icon svg {
+    height: 80px;
+    fill: #000000;
+  }
+  
+  .custum-file-upload .text {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .custum-file-upload .text span {
+    font-weight: 400;
+    color: #000000;
+  }
+  
+  .custum-file-upload input {
+    display: none;
+  }

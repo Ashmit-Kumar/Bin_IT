@@ -1,0 +1,51 @@
+.member-details {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: #DCF5DF;
+    gap: 5px;
+    height: 100%;
+    min-height: 450px;
+    width: 350px;
+    padding: 2rem;
+    text-align: center;
+    border-radius: 25px;
+}
+
+.member-details img {
+    object-fit: cover;
+    height: 9rem;
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+}
+
+.member-role {
+    font-size: 1.5rem;
+    color: grey;
+}
+
+.member-name {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: rgb(0, 0, 0);
+    margin-bottom: 10px;
+}
+
+.member-desc {
+    font-size: 1.3rem;
+    color: grey;
+    text-align: center;
+}
+
+.members-socials{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.members-socials img{
+    height: 4rem;
+    border-radius: 50%;
+    object-fit: scale-down;
+}

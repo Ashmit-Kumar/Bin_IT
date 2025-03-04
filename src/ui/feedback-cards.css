@@ -1,0 +1,71 @@
+/* FeedbackCard.css */
+.card {
+  display: flex;
+  align-items: center;
+  border-radius: 8px;
+  max-width: 400px;
+  margin: 16px auto;
+  padding-bottom: 5rem;
+}
+
+.card .image {
+  position: absolute;
+  border-radius: 12px;
+  width: 8rem;
+  height: 13rem;
+  margin: 0 0 1.6rem 2rem;
+  z-index: 1;
+}
+
+.card .content {
+  z-index: 0;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  background: #195A94;
+  color: white;
+  padding: 1rem 0rem 0.3rem 0rem;
+  border-radius: 8px;
+}
+
+.card .inside-content {
+  margin-left: 11rem;
+  margin-right: 1rem;
+  text-align: justify;
+}
+
+.card .rating {
+  display: flex;
+}
+
+.card .comment {
+  margin: 8px 0;
+  font-size: 14px;
+}
+
+.card .commenter {
+  font-size: 14px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.purple{
+  background: #5D5DFF;
+  height: 5rem;
+  width: 5rem;
+  position: absolute;
+  z-index: -1;
+  margin: -11rem 0rem 0rem 20rem;
+  border-radius: 15px;
+}
+
+.baigan{
+  background: #B3C1EA;
+  height: 5rem;
+  width: 10rem;
+  position: absolute;
+  z-index: -1;
+  margin: 10rem 0rem 0rem -5rem;
+  border-radius: 15px;
+}

@@ -1,0 +1,44 @@
+.ques-bar{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    position: relative;
+}
+
+.num-round-bg{
+    position: absolute;
+    border-radius: 50%;
+    font-size: 1.5rem;
+    font-weight: bold;
+    background: rgb(112, 255, 255);
+    height: 3rem;
+    width: 3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 46rem;
+    z-index: 1;
+}
+
+.ques-rect-bg{
+    z-index: 0;
+    width: 50rem;
+    background-color: rgb(255, 255, 255);
+    margin-left: 4rem;
+    padding: 0.5rem 2rem;
+    border-radius: 15px;
+    border-right: 3px solid black;
+    border-top: 3px solid black;
+    border-bottom: 3px solid black;
+    filter: drop-shadow(5px 5px);
+}
+
+.ques-rect-bg span{
+    font-size: 2rem;
+}
+
+.ques-bar a{
+    color: black;
+    text-decoration: none;
+}

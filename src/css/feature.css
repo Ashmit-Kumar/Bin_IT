@@ -1,0 +1,60 @@
+.feature{
+    padding: 5rem 5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 7rem;
+}
+
+.feature-img img{
+    width: 30rem;
+    border-radius: 20px;
+}
+
+.feature-content{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.feature-title{
+    width: 95%;
+    font-size: 3rem;
+    font-weight: bold;
+    filter: drop-shadow(0 0 2px black);
+}
+
+.feature-detail{
+    font-size: 1.5rem;
+}
+
+.feature-panel{
+    margin: 2rem 0rem 0rem -13rem;
+    position: relative;
+    height: 8rem;
+    width: 35rem;
+    background: #2C3C34;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    gap: 3rem;
+    color: white;
+    border-radius: 25px;
+}
+
+.panel{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.panel h3{
+    font-size: 1.8rem;
+}
+
+.panel h5{
+    font-size: 1.3rem;
+}
