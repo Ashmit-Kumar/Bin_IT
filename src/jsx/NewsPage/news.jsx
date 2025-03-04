@@ -12,9 +12,9 @@ const News = () => {
 
     useEffect(() => {
         const fetchNews = async () => {
-            const apiKey = import.meta.env.VITE_NEWS_API_KEY; // Access API key from env
+            const apiKey = import.meta.env.VITE_NEWS_API_KEY; 
             const query = 'pollution of land and water';
-            const url = `https://newsdata.io/api/1/news?apikey=${apiKey}&q=${encodeURIComponent(query)}&language=en`;
+            const url = `https://gnews.io/api/v4/search?q=${encodeURIComponent(query)}&token=${apiKey}&lang=en&max=6`;
 
             if (!apiKey) {
                 setError("API Key not found. Make sure .env file is configured correctly and VITE_NEWS_API_KEY is set.");
@@ -24,8 +24,8 @@ const News = () => {
 
             try {
                 const response = await axios.get(url);
-                if (response.data && response.data.results) {
-                    setArticles(response.data.results); // Adjusted for newdata.io response format
+                if (response.data && response.data.articles) {
+                    setArticles(response.data.articles); // GNews API response format
                 } else {
                     setError("No news articles found.");
                 }
@@ -61,22 +61,21 @@ const News = () => {
 
     const getFirstName = (name) => {
         if (!name) return 'Unknown';
-        if (Array.isArray(name)) return name[0] || 'Unknown'; // Handle case where creator is an array
         return typeof name === 'string' ? name.split(' ')[0] : 'Unknown';
     };
 
     const displayNews = () => {
-        return articles.slice(0, 6).map((article, index) => (
+        return articles.map((article, index) => (
             <div key={index} className="card-main">
-                {article.image_url && <img src={article.image_url} alt={article.title} className="article-image" />}
+                {article.image && <img src={article.image} alt={article.title} className="article-image" />}
                 <div className="article-content">
                     <div className="article-title">{article.title}</div>
                     <div className="article-description">
-                        {article.description}
+                        {article.description || 'No description available'}
                     </div>
                     <div className="article-meta">
-                        <span>{timeSince(article.pubDate)}</span>
-                        <span>{article.creator ? `by ${getFirstName(article.creator)}` : ''}</span>
+                        <span>{timeSince(article.publishedAt)}</span>
+                        <span>{article.source ? `by ${getFirstName(article.source.name)}` : ''}</span>
                     </div>
                     <div className="article-actions">
                         <div className="action-item">
@@ -98,9 +97,9 @@ const News = () => {
                 <div className="news-main">
                     <div className="news-main-title">News</div>
                     <div className="trending-news-top">
-                        {articles.length > 0 && articles[0].image_url && (
+                        {articles.length > 0 && articles[0].image && (
                             <div className="trending-news-img">
-                                <img src={articles[0].image_url} alt={articles[0].title} className="article-image" />
+                                <img src={articles[0].image} alt={articles[0].title} className="article-image" />
                             </div>
                         )}
                         <div className="trending-news-right">
@@ -118,10 +117,10 @@ const News = () => {
                             {articles.length > 0 && (
                                 <>
                                     <span className="trending-news-title">{articles[0].title}</span>
-                                    <span className="trending-news-description">{articles[0].description}</span>
+                                    <span className="trending-news-description">{articles[0].description || 'No description available'}</span>
                                     <div className="trending-news-meta">
-                                        <span>{timeSince(articles[0].pubDate)}</span>
-                                        <span>{articles[0].creator ? `by ${getFirstName(articles[0].creator)}` : ''}</span>
+                                        <span>{timeSince(articles[0].publishedAt)}</span>
+                                        <span>{articles[0].source ? `by ${getFirstName(articles[0].source.name)}` : ''}</span>
                                     </div>
                                 </>
                             )}
