@@ -12,14 +12,13 @@ import Ngo from '../src/jsx/RegistrationPages/ngo.jsx';
 function App() {
     return (
         <Routes>
-            <Route path="/" element={<Navigate to="/home" />} />
-            <Route path="/home" element={<Home />} />
+            <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
             <Route path="/news" element={<News />} />
             <Route path="/faqs" element={<Faqs />} />
             <Route path="/submit-report" element={<ReportPage totalPages={4} />} />
             <Route path="/ngo-registration" element={<Ngo />} />
-            <Route path="*" element={<Navigate to="/home" />} />
+            <Route path="*" element={<Home />} />
         </Routes>
     );
 }
