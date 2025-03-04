@@ -10,28 +10,29 @@ function HomeNews() {
     useEffect(() => {
         const fetchNews = async () => {
             const apiKey = import.meta.env.VITE_NEWS_API_KEY;
-            const query = "health effects water pollution";
-            const url = `https://gnews.io/api/v4/search?q=${encodeURIComponent(query)}&token=${apiKey}&lang=en&max=5`;
+            const query = "health effects of water pollution";
+            const url = `https://newsapi.org/v2/everything?q=${encodeURIComponent(query)}&apiKey=${apiKey}&language=en&pageSize=5`;
 
             if (!apiKey) {
-                setError("API Key not found. Make sure .env file is configured correctly and VITE_GNEWS_API_KEY is set.");
+                setError("API Key not found. Make sure the .env file is configured correctly.");
                 setLoading(false);
                 return;
             }
 
             try {
                 const response = await axios.get(url);
-                if (response.data && response.data.articles) {
+                if (response.data && response.data.articles.length > 0) {
                     setNews(response.data.articles);
                 } else {
                     setError("No news articles found.");
                 }
             } catch (error) {
-                setError(`Error fetching news: ${error.message}`);
+                setError(`Error fetching news: ${error.response?.data?.message || error.message}`);
             } finally {
                 setLoading(false);
             }
         };
+
         fetchNews();
     }, []);
 
@@ -40,26 +41,33 @@ function HomeNews() {
             <div className="home-news-title">NEWS UPDATE</div>
             <div className="news-grid">
                 {loading ? (
-                    <p>Loading...</p>
+                    <p>Loading latest news...</p>
                 ) : error ? (
-                    <p>{error}</p>
+                    <p className="error-message">{error}</p>
                 ) : (
                     news.map((article, index) => (
                         <div key={index} className={`news-card ${index === 0 ? "featured" : ""}`}>
                             <img
-                                src={article.image || "/news-placeholder.png"}
+                                src={article.urlToImage || "/news-placeholder.png"}
                                 alt="News"
                                 className="news-image"
                                 loading="lazy"
+                                onError={(e) => (e.target.src = "/news-placeholder.png")}
                             />
                             <div className="news-content">
                                 <h3 className="news-title">{article.title}</h3>
                                 <p className="news-description">
-                                    {article.description ? article.description : "No description available."}
+                                    {article.description || "No description available."}
                                 </p>
                                 <div className="news-footer">
                                     <span className="news-date">
-                                        {article.publishedAt ? new Date(article.publishedAt).toLocaleDateString() : "N/A"}
+                                        {article.publishedAt
+                                            ? new Intl.DateTimeFormat("en-US", {
+                                                  year: "numeric",
+                                                  month: "short",
+                                                  day: "numeric",
+                                              }).format(new Date(article.publishedAt))
+                                            : "N/A"}
                                     </span>
                                     <a
                                         href={article.url}

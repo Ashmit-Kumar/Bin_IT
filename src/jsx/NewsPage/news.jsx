@@ -12,12 +12,12 @@ const News = () => {
 
     useEffect(() => {
         const fetchNews = async () => {
-            const apiKey = import.meta.env.VITE_NEWS_API_KEY; 
+            const apiKey = import.meta.env.VITE_NEWS_API_KEY;  
             const query = 'pollution of land and water';
-            const url = `https://gnews.io/api/v4/search?q=${encodeURIComponent(query)}&token=${apiKey}&lang=en&max=6`;
+            const url = `https://newsapi.org/v2/everything?q=${encodeURIComponent(query)}&apiKey=${apiKey}&language=en&pageSize=6`;
 
             if (!apiKey) {
-                setError("API Key not found. Make sure .env file is configured correctly and VITE_NEWS_API_KEY is set.");
+                setError("API Key missing. Set VITE_GOOGLE_NEWS_API_KEY in .env file.");
                 setLoading(false);
                 return;
             }
@@ -25,15 +25,13 @@ const News = () => {
             try {
                 const response = await axios.get(url);
                 if (response.data && response.data.articles) {
-                    setArticles(response.data.articles); // GNews API response format
+                    setArticles(response.data.articles);
                 } else {
                     setError("No news articles found.");
                 }
-            } 
-            catch (err) {  
-                setError(`Error fetching news: ${err.message}`);  
-            } 
-            finally {
+            } catch (err) {
+                setError(`Error fetching news: ${err.message}`);
+            } finally {
                 setLoading(false);
             }
         };
@@ -44,30 +42,20 @@ const News = () => {
     const timeSince = (date) => {
         const seconds = Math.floor((new Date() - new Date(date)) / 1000);
         let interval = Math.floor(seconds / 86400);
-
-        if (interval >= 1) {
-            return interval + ' days ago';
-        }
+        if (interval >= 1) return interval + ' days ago';
         interval = Math.floor(seconds / 3600);
-        if (interval >= 1) {
-            return interval + ' hours ago';
-        }
+        if (interval >= 1) return interval + ' hours ago';
         interval = Math.floor(seconds / 60);
-        if (interval >= 1) {
-            return interval + ' minutes ago';
-        }
+        if (interval >= 1) return interval + ' minutes ago';
         return Math.floor(seconds) + ' seconds ago';
     };
 
-    const getFirstName = (name) => {
-        if (!name) return 'Unknown';
-        return typeof name === 'string' ? name.split(' ')[0] : 'Unknown';
-    };
+    const getFirstName = (name) => (name ? name.split(' ')[0] : 'Unknown');
 
     const displayNews = () => {
         return articles.map((article, index) => (
             <div key={index} className="card-main">
-                {article.image && <img src={article.image} alt={article.title} className="article-image" />}
+                {article.urlToImage && <img src={article.urlToImage} alt={article.title} className="article-image" />}
                 <div className="article-content">
                     <div className="article-title">{article.title}</div>
                     <div className="article-description">
@@ -97,9 +85,9 @@ const News = () => {
                 <div className="news-main">
                     <div className="news-main-title">News</div>
                     <div className="trending-news-top">
-                        {articles.length > 0 && articles[0].image && (
+                        {articles.length > 0 && articles[0].urlToImage && (
                             <div className="trending-news-img">
-                                <img src={articles[0].image} alt={articles[0].title} className="article-image" />
+                                <img src={articles[0].urlToImage} alt={articles[0].title} className="article-image" />
                             </div>
                         )}
                         <div className="trending-news-right">
