@@ -1,0 +1,27 @@
+{
+    "rewrites": [
+      { "source": "/(.*)", "destination": "/index.html" }
+    ],
+    "redirects": [
+      { "source": "/old-route", "destination": "/new-route", "permanent": true }
+    ],
+    "headers": [
+      {
+        "source": "/(.*)",
+        "headers": [
+          { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" },
+          { "key": "Access-Control-Allow-Origin", "value": "*" }
+        ]
+      }
+    ],
+    "functions": {
+      "api/*.js": {
+        "memory": 256,
+        "maxDuration": 10
+      }
+    },
+    "build": {
+      "ignore": ["node_modules", ".git", "public/large-images"]
+    }
+  }
+  
