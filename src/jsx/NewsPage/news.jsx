@@ -14,20 +14,26 @@ const News = () => {
         const fetchNews = async () => {
             const apiKey = import.meta.env.VITE_NEWS_API_KEY; // Access API key from env
             const query = 'pollution of land and water';
-            const url = `https://newsapi.org/v2/everything?q=${encodeURIComponent(query)}&apiKey=${apiKey}`;
+            const url = `https://newsdata.io/api/1/news?apikey=${apiKey}&q=${encodeURIComponent(query)}&language=en`;
 
             if (!apiKey) {
-                setError("API Key not found.  Make sure .env file is configured correctly and VITE_NEWS_API_KEY is set.");
+                setError("API Key not found. Make sure .env file is configured correctly and VITE_NEWS_API_KEY is set.");
                 setLoading(false);
                 return;
             }
 
             try {
                 const response = await axios.get(url);
-                setArticles(response.data.articles);
-            } catch (err) {  // Use 'err' instead of 'error' for the error object
-                setError(`Error fetching news: ${err.message}`);  // Include error message for debugging
-            } finally {
+                if (response.data && response.data.results) {
+                    setArticles(response.data.results); // Adjusted for newdata.io response format
+                } else {
+                    setError("No news articles found.");
+                }
+            } 
+            catch (err) {  
+                setError(`Error fetching news: ${err.message}`);  
+            } 
+            finally {
                 setLoading(false);
             }
         };
@@ -54,21 +60,23 @@ const News = () => {
     };
 
     const getFirstName = (name) => {
-        return name.split(' ')[0];
+        if (!name) return 'Unknown';
+        if (Array.isArray(name)) return name[0] || 'Unknown'; // Handle case where creator is an array
+        return typeof name === 'string' ? name.split(' ')[0] : 'Unknown';
     };
 
     const displayNews = () => {
         return articles.slice(0, 6).map((article, index) => (
             <div key={index} className="card-main">
-                {article.urlToImage && <img src={article.urlToImage} alt={article.title} className="article-image" />}
+                {article.image_url && <img src={article.image_url} alt={article.title} className="article-image" />}
                 <div className="article-content">
                     <div className="article-title">{article.title}</div>
                     <div className="article-description">
                         {article.description}
                     </div>
                     <div className="article-meta">
-                        <span>{timeSince(article.publishedAt)}</span>
-                        <span>{article.author ? `by ${getFirstName(article.author)}` : ''}</span>
+                        <span>{timeSince(article.pubDate)}</span>
+                        <span>{article.creator ? `by ${getFirstName(article.creator)}` : ''}</span>
                     </div>
                     <div className="article-actions">
                         <div className="action-item">
@@ -88,13 +96,11 @@ const News = () => {
             <Header />
             <main>
                 <div className="news-main">
-                    <div className="news-main-title">
-                        News
-                    </div>
+                    <div className="news-main-title">News</div>
                     <div className="trending-news-top">
-                        {articles.length > 0 && articles[0].urlToImage && (
+                        {articles.length > 0 && articles[0].image_url && (
                             <div className="trending-news-img">
-                                <img src={articles[0].urlToImage} alt={articles[0].title} className="article-image" />
+                                <img src={articles[0].image_url} alt={articles[0].title} className="article-image" />
                             </div>
                         )}
                         <div className="trending-news-right">
@@ -114,8 +120,8 @@ const News = () => {
                                     <span className="trending-news-title">{articles[0].title}</span>
                                     <span className="trending-news-description">{articles[0].description}</span>
                                     <div className="trending-news-meta">
-                                        <span>{timeSince(articles[0].publishedAt)}</span>
-                                        <span>{articles[0].author ? `by ${getFirstName(articles[0].author)}` : ''}</span>
+                                        <span>{timeSince(articles[0].pubDate)}</span>
+                                        <span>{articles[0].creator ? `by ${getFirstName(articles[0].creator)}` : ''}</span>
                                     </div>
                                 </>
                             )}
