@@ -139,10 +139,9 @@ function SecondPage({ formData, handleFormDataChange }) {
         setIsFormComplete(isComplete);
         handleFormDataChange({ isFormComplete: isComplete });
     }
-
     function handlePincodeChange(e) {
         const pincode = e.target.value;
-        if (pincode < 100000 || pincode > 999999) {
+        if (pincode < 1|| pincode > 999999) {
             setPincodeError("Pincode must be between 100000 and 999999.");
         } else {
             setPincodeError("");
