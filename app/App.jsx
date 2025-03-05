@@ -9,19 +9,19 @@ import ReportPage from '../src/jsx/ReportPage/report.jsx';
 import Ngo from '../src/jsx/RegistrationPages/ngo.jsx';
 
 
-// function App() {
-//     return (
-//         <Routes>
-//             <Route path="#/" element={<Home />} />
-//             <Route path="#/about" element={<About />} />
-//             <Route path="#/news" element={<News />} />
-//             <Route path="#/faqs" element={<Faqs />} />
-//             <Route path="#/submit-report" element={<ReportPage totalPages={4} />} />
-//             <Route path="#/ngo-registration" element={<Ngo />} />
-//             <Route path="*" element={<Home />} />
-//         </Routes>
-//     );
-// }
+function App() {
+    return (
+        <Routes>
+            <Route path="#/" element={<Home />} />
+            <Route path="#/about" element={<About />} />
+            <Route path="#/news" element={<News />} />
+            <Route path="#/faqs" element={<Faqs />} />
+            <Route path="#/submit-report" element={<ReportPage totalPages={4} />} />
+            <Route path="#/ngo-registration" element={<Ngo />} />
+            <Route path="*" element={<Home />} />
+        </Routes>
+    );
+}
 function App() {
     return (
         <Router>
