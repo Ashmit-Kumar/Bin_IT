@@ -26,7 +26,7 @@ function Header() {
         if (isSignedIn) {
             signOut(); // Clerk Logout
         }
-        navigate('/home'); // Redirect to home page
+        navigate('/'); // Redirect to home page
     };
     useEffect(() => {
         if (isMobileMenuOpen) {

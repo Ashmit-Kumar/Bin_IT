@@ -143,6 +143,8 @@ function SecondPage({ formData, handleFormDataChange }) {
         const pincode = e.target.value;
         if (pincode < 1|| pincode > 999999) {
             setPincodeError("Pincode must be between 100000 and 999999.");
+        if (pincode < 0) {
+            setPincodeError("Pincode cannot be negative.");
         } else {
             setPincodeError("");
             handleFormDataChange({ pincode });
@@ -195,5 +197,6 @@ function SecondPage({ formData, handleFormDataChange }) {
         </div>
     );
 }
-
+}
 export default SecondPage;
+

@@ -69,7 +69,7 @@ function Footer() {
 
             {/* Footer Bottom */}
             <div className="footer-bottom">
-                <small>Copyright &copy; <span>{new Date().getFullYear()}</span> BINiT. All rights reserved.</small>
+                <small>Copyright &copy; <span>{new Date().getFullYear()}</span> BinIT. All rights reserved.</small>
             </div>
         </footer>
     );

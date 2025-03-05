@@ -12,21 +12,25 @@ const News = () => {
 
     useEffect(() => {
         const fetchNews = async () => {
-            const apiKey = import.meta.env.VITE_NEWS_API_KEY; // Access API key from env
+            const apiKey = import.meta.env.VITE_NEWS_API_KEY;  
             const query = 'pollution of land and water';
-            const url = `https://newsapi.org/v2/everything?q=${encodeURIComponent(query)}&apiKey=${apiKey}`;
+            const url = `https://newsapi.org/v2/everything?q=${encodeURIComponent(query)}&apiKey=${apiKey}&language=en&pageSize=6`;
 
             if (!apiKey) {
-                setError("API Key not found.  Make sure .env file is configured correctly and VITE_NEWS_API_KEY is set.");
+                setError("API Key missing. Set VITE_GOOGLE_NEWS_API_KEY in .env file.");
                 setLoading(false);
                 return;
             }
 
             try {
                 const response = await axios.get(url);
-                setArticles(response.data.articles);
-            } catch (err) {  // Use 'err' instead of 'error' for the error object
-                setError(`Error fetching news: ${err.message}`);  // Include error message for debugging
+                if (response.data && response.data.articles) {
+                    setArticles(response.data.articles);
+                } else {
+                    setError("No news articles found.");
+                }
+            } catch (err) {
+                setError(`Error fetching news: ${err.message}`);
             } finally {
                 setLoading(false);
             }
@@ -38,37 +42,28 @@ const News = () => {
     const timeSince = (date) => {
         const seconds = Math.floor((new Date() - new Date(date)) / 1000);
         let interval = Math.floor(seconds / 86400);
-
-        if (interval >= 1) {
-            return interval + ' days ago';
-        }
+        if (interval >= 1) return interval + ' days ago';
         interval = Math.floor(seconds / 3600);
-        if (interval >= 1) {
-            return interval + ' hours ago';
-        }
+        if (interval >= 1) return interval + ' hours ago';
         interval = Math.floor(seconds / 60);
-        if (interval >= 1) {
-            return interval + ' minutes ago';
-        }
+        if (interval >= 1) return interval + ' minutes ago';
         return Math.floor(seconds) + ' seconds ago';
     };
 
-    const getFirstName = (name) => {
-        return name.split(' ')[0];
-    };
+    const getFirstName = (name) => (name ? name.split(' ')[0] : 'Unknown');
 
     const displayNews = () => {
-        return articles.slice(0, 6).map((article, index) => (
+        return articles.map((article, index) => (
             <div key={index} className="card-main">
                 {article.urlToImage && <img src={article.urlToImage} alt={article.title} className="article-image" />}
                 <div className="article-content">
                     <div className="article-title">{article.title}</div>
                     <div className="article-description">
-                        {article.description}
+                        {article.description || 'No description available'}
                     </div>
                     <div className="article-meta">
                         <span>{timeSince(article.publishedAt)}</span>
-                        <span>{article.author ? `by ${getFirstName(article.author)}` : ''}</span>
+                        <span>{article.source ? `by ${getFirstName(article.source.name)}` : ''}</span>
                     </div>
                     <div className="article-actions">
                         <div className="action-item">
@@ -88,9 +83,7 @@ const News = () => {
             <Header />
             <main>
                 <div className="news-main">
-                    <div className="news-main-title">
-                        News
-                    </div>
+                    <div className="news-main-title">News</div>
                     <div className="trending-news-top">
                         {articles.length > 0 && articles[0].urlToImage && (
                             <div className="trending-news-img">
@@ -112,10 +105,10 @@ const News = () => {
                             {articles.length > 0 && (
                                 <>
                                     <span className="trending-news-title">{articles[0].title}</span>
-                                    <span className="trending-news-description">{articles[0].description}</span>
+                                    <span className="trending-news-description">{articles[0].description || 'No description available'}</span>
                                     <div className="trending-news-meta">
                                         <span>{timeSince(articles[0].publishedAt)}</span>
-                                        <span>{articles[0].author ? `by ${getFirstName(articles[0].author)}` : ''}</span>
+                                        <span>{articles[0].source ? `by ${getFirstName(articles[0].source.name)}` : ''}</span>
                                     </div>
                                 </>
                             )}
